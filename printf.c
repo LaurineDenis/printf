@@ -6,7 +6,7 @@
 /*   By: ldenis <ldenis@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/13 14:56:39 by ldenis            #+#    #+#             */
-/*   Updated: 2020/12/14 16:42:26 by ldenis           ###   ########lyon.fr   */
+/*   Updated: 2020/12/16 12:09:44 by ldenis           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -132,5 +132,5 @@ int		main(void)
 	c = 'a';
 	i = 45;
 	u = 25;
-	ft_printf("%s %c %d %p %i\n%u\n%x\n%X", s, c, i, &s, i, u, i, i);
+	ft_printf("%s %c %d %p %i %u %x %X", s, c, i, &s, i, u, i, i);
 }

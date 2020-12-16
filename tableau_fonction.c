@@ -6,7 +6,7 @@
 /*   By: ldenis <ldenis@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/16 13:34:32 by ldenis            #+#    #+#             */
-/*   Updated: 2020/12/16 15:01:49 by ldenis           ###   ########lyon.fr   */
+/*   Updated: 2020/12/16 16:34:03 by ldenis           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,14 +34,14 @@ print_list	*init_struct(void)
 	new->flag_0 = 0;
 	new->flag_tiret = 0;
 	new->flag_point = 0;
-	new->flag_point = 0;
+	new->flag_etoile = 0;
 	new->taille = 0;
 	new->next = NULL;
 	new->print = NULL;
 	return (new);
 }
 
-void		*add_back_lst(print_list **first, print_list *new)
+void		add_back_lst(print_list **first, print_list *new)
 {
 	print_list		*save;
 
@@ -51,7 +51,7 @@ void		*add_back_lst(print_list **first, print_list *new)
 	else
 	{
 		while ((*first)->next)
-			first = (*first)->next;
+			(*first) = (*first)->next;
 		(*first)->next = new;
 		(*first) = save;
 	}

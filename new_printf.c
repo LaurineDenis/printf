@@ -6,7 +6,7 @@
 /*   By: ldenis <ldenis@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/16 11:51:27 by ldenis            #+#    #+#             */
-/*   Updated: 2020/12/16 15:18:39 by ldenis           ###   ########lyon.fr   */
+/*   Updated: 2020/12/16 16:33:56 by ldenis           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,12 +49,14 @@ int		ft_printf(const char *str, ...)
 	va_list		ap;
 	int			i;
 	size_t		len;
-	print_list	lst;
+	print_list	*lst;
 	void		(*tab_fonction[121])(va_list, print_list *);
 
 	i = 0;
 	len = ft_strlen(str);
 	init_tab(tab_fonction);
+	lst = init_struct();
+
 	va_start(ap, str);
 	while (i < len)
 	{
@@ -63,10 +65,10 @@ int		ft_printf(const char *str, ...)
 			(tab_fonction[str[i + 1]])(ap, &lst);
 			i += 2;
 		}
-		else if (str[i] == '%' && is_f(str[i + 1]) != 0)
-		{
+		// else if (str[i] == '%' && is_f(str[i + 1]) != 0)
+		// {
 
-		}
+		// }
 		write(1, &str[i], 1);
 		i++;
 	}

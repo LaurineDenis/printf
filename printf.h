@@ -6,7 +6,7 @@
 /*   By: ldenis <ldenis@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/13 14:58:55 by ldenis            #+#    #+#             */
-/*   Updated: 2020/12/16 15:01:54 by ldenis           ###   ########lyon.fr   */
+/*   Updated: 2020/12/16 16:33:59 by ldenis           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ typedef struct		print_list
 	int				flag_etoile;
 	int				taille;
 	char			*print;
-	struct s_list	*next;
+	struct print_list	*next;
 }					print_list;
 
 #include <stdarg.h>
@@ -39,7 +39,7 @@ void		print_u(va_list ap, print_list *lst);
 void		print_p(va_list ap, print_list *lst);
 void		print_i(va_list ap, print_list *lst);
 print_list	*init_struct(void);
-void		*add_back_lst(print_list **first, print_list *new);
+void		add_back_lst(print_list **first, print_list *new);
 void		init_tab(void (**tab_fonction)(va_list, print_list *));
 
 #endif

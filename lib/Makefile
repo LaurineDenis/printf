@@ -6,7 +6,7 @@
 #    By: ldenis <ldenis@student.42lyon.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/11/24 11:44:21 by ldenis            #+#    #+#              #
-#    Updated: 2020/12/14 16:36:12 by ldenis           ###   ########lyon.fr    #
+#    Updated: 2020/12/18 12:14:50 by ldenis           ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,7 @@ SRCS		= ft_putnbr_fd.c ft_putendl_fd.c ft_putstr_fd.c ft_putchar_fd.c \
  ft_atoi.c ft_calloc.c ft_isalpha.c ft_isdigit.c ft_memccpy.c ft_memcmp.c \
  ft_memmove.c ft_strchr.c ft_strlcat.c ft_strlen.c ft_strnstr.c ft_tolower.c \
  ft_convert_base.c ft_convert_base2.c ft_itoa_hexa_l.c ft_putnbr_unsi.c \
- ft_itoa_hexa_unsi.c
+ ft_itoa_hexa_unsi.c ft_itoa_unsi.c ft_strichr.c
 
 OBJS		= ${SRCS:.c=.o}
 

@@ -6,24 +6,24 @@
 /*   By: ldenis <ldenis@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/13 14:58:55 by ldenis            #+#    #+#             */
-/*   Updated: 2020/12/16 16:33:59 by ldenis           ###   ########lyon.fr   */
+/*   Updated: 2020/12/18 15:15:24 by ldenis           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PRINTF_H
 # define PRINTF_H
 
-typedef struct		print_list
+typedef struct			print_list
 {
-	char			convert;
-	int				flag_0;
-	int				flag_tiret;
-	int				flag_point;
-	int				flag_etoile;
-	int				taille;
-	char			*print;
+	char				convert;
+	int					flag_0;
+	int					flag_tiret;
+	int					flag_point;
+	int					flag_etoile;
+	int					taille;
+	char				*print;
 	struct print_list	*next;
-}					print_list;
+}						print_list;
 
 #include <stdarg.h>
 #include <stdio.h>
@@ -32,14 +32,16 @@ typedef struct		print_list
 int			ft_printf(const char *, ...);
 void		print_c(va_list ap, print_list *lst);
 void		print_s(va_list ap, print_list *lst);
-void		print_d(va_list ap, print_list *lst);
+void		print_d_i(va_list ap, print_list *lst);
 void		print_X(va_list ap, print_list *lst);
 void		print_x(va_list ap, print_list *lst);
 void		print_u(va_list ap, print_list *lst);
 void		print_p(va_list ap, print_list *lst);
-void		print_i(va_list ap, print_list *lst);
 print_list	*init_struct(void);
 void		add_back_lst(print_list **first, print_list *new);
 void		init_tab(void (**tab_fonction)(va_list, print_list *));
+char		*ft_strfjoin(char *s1, char *s2, int is_free);
+int			add_flag(print_list *lst, char c, const char *str, int start);
+int			is_c(char c);
 
 #endif

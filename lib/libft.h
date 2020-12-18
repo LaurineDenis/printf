@@ -6,7 +6,7 @@
 /*   By: ldenis <ldenis@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/28 17:18:32 by ldenis            #+#    #+#             */
-/*   Updated: 2020/12/14 16:35:34 by ldenis           ###   ########lyon.fr   */
+/*   Updated: 2020/12/18 12:14:40 by ldenis           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,5 +74,7 @@ char				*ft_convert_base(char *nbr, char *base_from, char *base_to);
 char				*ft_itoa_hexa_l(unsigned long n, char *base);
 void				ft_putnbr_unsi(unsigned int n, int fd);
 char				*ft_itoa_hexa_unsi(unsigned int n, char *base);
+char				*ft_itoa_unsi(unsigned int n);
+int					ft_strichr(const char *s, int c);
 
 #endif

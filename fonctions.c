@@ -6,7 +6,7 @@
 /*   By: ldenis <ldenis@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/16 12:16:22 by ldenis            #+#    #+#             */
-/*   Updated: 2020/12/16 16:34:01 by ldenis           ###   ########lyon.fr   */
+/*   Updated: 2020/12/18 12:11:52 by ldenis           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,12 @@ void	print_c(va_list ap, print_list *lst)
 	char	c;
 
 	c = (char)va_arg(ap, int);
-	ft_putchar_fd(c, 1);
-	// printf("%c", c);
+	if (!(lst->print = malloc(sizeof(char) * 2)))
+		return ;
+	lst->print[0] = c;
+	lst->print[1] = '\0';
+	// ft_putchar_fd(c, 1);
+	// printf("print c = %s\n", lst->print);
 }
 
 void	print_s(va_list ap, print_list *lst)
@@ -26,26 +30,21 @@ void	print_s(va_list ap, print_list *lst)
 	char	*s;
 
 	s = va_arg(ap, char*);
-	ft_putstr_fd(s, 1);
-	// printf("s = %s\n", s);
+	lst->print = ft_strdup(s);
+	// ft_putstr_fd(s, 1);
+	// printf("print s = %s\n", lst->print);
 }
 
-void	print_d(va_list ap, print_list *lst)
+void	print_d_i(va_list ap, print_list *lst)
 {
 	int		i;
+	char	*ret;
 
 	i = va_arg(ap, int);
-	ft_putnbr_fd(i, 1);
-	// printf("%d", i);
-}
-
-void	print_i(va_list ap, print_list *lst)
-{
-	int		i;
-
-	i = va_arg(ap, int);
-	ft_putnbr_fd(i, 1);
-	// printf("%d", i);
+	ret = ft_itoa(i);
+	lst->print = ft_strdup(ret);
+	// ft_putnbr_fd(i, 1);
+	// printf("print d/i = %s\n", lst->print);
 }
 
 void	print_p(va_list ap, print_list *lst)
@@ -54,8 +53,21 @@ void	print_p(va_list ap, print_list *lst)
 	long long int			i;
 
 	i = va_arg(ap, long long int);
-	// printf("%p\n", i);
 	s = ft_itoa_hexa_l(i, "0123456789abcdef");
-	write(1, "0x", 2);
-	ft_putstr_fd(s, 1);
+	lst->print = ft_strdup(s);
+	lst->print = ft_strfjoin("0x", lst->print, 2);
+	// ft_putstr_fd(s, 1);
+	// printf("print p = %s\n", lst->print);
+}
+
+void		print_u(va_list ap, print_list *lst)
+{
+	unsigned int		i;
+	char				*ret;
+
+	i = va_arg(ap, unsigned int);
+	ret = ft_itoa_unsi(i);
+	lst->print = ft_strdup(ret);
+	// ft_putnbr_unsi(i, 1);
+	// printf("print u = %s\n", lst->print);
 }

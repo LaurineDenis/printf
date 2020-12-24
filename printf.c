@@ -47,7 +47,7 @@ int		is_f(char c)
 int		ft_printf(const char *str, ...)
 {
 	va_list		ap;
-	int			i;
+	size_t		i;
 	size_t		len;
 	print_list	*lst;
 	char		*ret;
@@ -71,7 +71,7 @@ int		ft_printf(const char *str, ...)
 				if (is_c(str[i]) != 0)
 				{
 					lst->convert = str[i];
-					(tab_fonction[str[i]])(ap, lst);
+					(tab_fonction[(int)str[i]])(ap, lst);
 				}
 				else
 					i = add_flag(lst, str[i], str, i);

@@ -12,7 +12,7 @@
 
 NAME		= printf.a
 
-SRCS		= printf.c
+SRCS		= printf.c flags.c fonctions.c tableau_fonction.c utils.c 
 
 OBJS		= ${SRCS:.c=.o}
 
@@ -24,18 +24,27 @@ CC			=	gcc
 
 CFLAGS		=	-Wall -Werror -Wextra
 
+LIB			= lib/libft.a
+
 %.o:		%.c printf.h
-			${CC} ${CFLAGS} -I includes -c $< -o $@
+			@echo "\033[0;32m [OK] \033[0m       \033[0;33m Compiling:\033[0m" $<
+			@${CC} ${CFLAGS} -I includes -c $< -o $@
 
 all:		${NAME}
 
-$(NAME):	${OBJS}
-			ar rcs ${NAME} ${OBJS}
+$(NAME):	${OBJS} libft
+			@ar rcs ${NAME} ${OBJS} lib/*.o
+
+libft:
+			@make -C lib
 
 clean:
-			${RM}  ${OBJS} ${OBJS_BONUS}
+			@${RM} ${OBJS}
+			@make clean -C lib
 
-fclean:		clean
-			${RM} ${NAME}
+fclean:		
+			@${RM} ${OBJS}
+			@${RM} ${NAME}
+			@make -C lib fclean
 
 re:			fclean all

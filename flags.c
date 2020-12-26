@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   flags.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ldenis <ldenis@student.42lyon.fr>          +#+  +:+       +#+        */
+/*   By: laurinedenis <laurinedenis@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/18 13:59:46 by ldenis            #+#    #+#             */
-/*   Updated: 2020/12/18 15:31:49 by ldenis           ###   ########lyon.fr   */
+/*   Updated: 2020/12/26 14:43:39 by laurinedeni      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int		add_flag(print_list *lst, char c, const char *str, int start)
 	while (is_c(str[i]) == 0 && str[i])
 		i++;
 	if (c == '-')
-		lst->flag_tiret = 1;
+		tiret(lst);
 	else if (c == '.')
 		lst->flag_point = 1;
 	else if (c == '*')
@@ -32,3 +32,12 @@ int		add_flag(print_list *lst, char c, const char *str, int start)
 	}
 	return (start);
 }
+
+void	tiret(print_list *lst)
+{
+	lst->flag_tiret = 1;
+	if (!(lst->print = ft_strfjoin(lst->print, "-\0", 1)))
+		return ;
+	// printf("tiret = %s\n", lst->print);
+}
+

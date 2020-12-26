@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   new_printf.c                                       :+:      :+:    :+:   */
+/*   printf.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ldenis <ldenis@student.42lyon.fr>          +#+  +:+       +#+        */
+/*   By: laurinedenis <laurinedenis@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/16 11:51:27 by ldenis            #+#    #+#             */
-/*   Updated: 2020/12/18 15:32:53 by ldenis           ###   ########lyon.fr   */
+/*   Updated: 2020/12/26 14:43:52 by laurinedeni      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,7 @@ int		ft_printf(const char *str, ...)
 	size_t		i;
 	size_t		len;
 	print_list	*lst;
+	print_list	*beg;
 	char		*ret;
 	void		(*tab_fonction[121])(va_list, print_list *);
 
@@ -57,6 +58,7 @@ int		ft_printf(const char *str, ...)
 	len = ft_strlen(str);
 	init_tab(tab_fonction);
 	lst = NULL;
+	beg = lst;
 	ret = ft_calloc(1, 1);
 	va_start(ap, str);
 	while (i < len)
@@ -66,16 +68,17 @@ int		ft_printf(const char *str, ...)
 			i++;
 			while (is_c(str[i]) != 0 || is_f(str[i]) != 0)
 			{
+				// dprintf(1, "i = %zu\n", i);
 				// lst = init_struct();
 				add_back_lst(&lst, init_struct());
 				if (is_c(str[i]) != 0)
 				{
 					lst->convert = str[i];
 					(tab_fonction[(int)str[i]])(ap, lst);
+					ret = ft_strfjoin(ret, lst->print, 1);
 				}
 				else
 					i = add_flag(lst, str[i], str, i);
-				ret = ft_strfjoin(ret, lst->print, 1);
 				i++;
 			}
 			printf("----------new_arg----------\n");
@@ -85,6 +88,8 @@ int		ft_printf(const char *str, ...)
 			printf("flag_etoile = %d\n", lst->flag_etoile);
 			printf("flag_tiret = %d\n", lst->flag_tiret);
 			printf("taille = %d\n", lst->taille);
+			printf("print = %s\n", lst->print);
+			lst = beg;
 		}
 		ret = ft_strfjoin(ret, ft_substr(str, i, 1), 3);
 		i++;
@@ -104,5 +109,5 @@ int		main(void)
 	c = 'a';
 	i = 45;
 	u = 25;
-	ft_printf("%-*s\n%c %d %p %i %u %x %X", s, c, i, &s, i, u, i, i);
+	ft_printf("%-s\n%-c %-d %-p %-i %-u %-x %-X", s, c, i, &s, i, u, i, i);
 }

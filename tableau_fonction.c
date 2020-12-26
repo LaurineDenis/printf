@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   tableau_fonction.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ldenis <ldenis@student.42lyon.fr>          +#+  +:+       +#+        */
+/*   By: laurinedenis <laurinedenis@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/16 13:34:32 by ldenis            #+#    #+#             */
-/*   Updated: 2020/12/18 15:33:40 by ldenis           ###   ########lyon.fr   */
+/*   Updated: 2020/12/26 14:41:47 by laurinedeni      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,8 @@ void		print_x(va_list ap, print_list *lst)
 
 	i = va_arg(ap, unsigned int);
 	s = ft_itoa_hexa_unsi(i, "0123456789abcdef");
-	lst->print = ft_strdup(s);
+	if (!(lst->print = ft_strfjoin(lst->print, s, 1)))
+		return ;
 	// ft_putstr_fd(s, 1);
 	// printf("print x= %s\n", lst->print);
 }
@@ -77,7 +78,8 @@ void		print_X(va_list ap, print_list *lst)
 
 	i = va_arg(ap, unsigned int);
 	s = ft_itoa_hexa_unsi(i, "0123456789ABCDEF");
-	lst->print = ft_strdup(s);
+	if (!(lst->print = ft_strfjoin(lst->print, s, 1)))
+		return ;
 	// ft_putstr_fd(s, 1);
 	// printf("print X= %s\n", lst->print);
 }

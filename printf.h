@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   printf.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: laurinedenis <laurinedenis@student.42.f    +#+  +:+       +#+        */
+/*   By: ldenis <ldenis@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/13 14:58:55 by ldenis            #+#    #+#             */
-/*   Updated: 2020/12/26 14:07:08 by laurinedeni      ###   ########.fr       */
+/*   Updated: 2020/12/28 14:21:54 by ldenis           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,8 @@ void		init_tab(void (**tab_fonction)(va_list, print_list *));
 char		*ft_strfjoin(char *s1, char *s2, int is_free);
 int			add_flag(print_list *lst, char c, const char *str, int start);
 int			is_c(char c);
+int			is_f(char c);
 void		tiret(print_list *lst);
+void		size(print_list *lst);
 
 #endif

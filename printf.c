@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   printf.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: laurinedenis <laurinedenis@student.42.f    +#+  +:+       +#+        */
+/*   By: ldenis <ldenis@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/16 11:51:27 by ldenis            #+#    #+#             */
-/*   Updated: 2020/12/26 14:43:52 by laurinedeni      ###   ########.fr       */
+/*   Updated: 2020/12/28 14:32:42 by ldenis           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,13 +68,14 @@ int		ft_printf(const char *str, ...)
 			i++;
 			while (is_c(str[i]) != 0 || is_f(str[i]) != 0)
 			{
-				// dprintf(1, "i = %zu\n", i);
+				// dprintf(1, "start = %zu\n", i);
 				// lst = init_struct();
 				add_back_lst(&lst, init_struct());
 				if (is_c(str[i]) != 0)
 				{
 					lst->convert = str[i];
 					(tab_fonction[(int)str[i]])(ap, lst);
+					size(lst);
 					ret = ft_strfjoin(ret, lst->print, 1);
 				}
 				else
@@ -109,5 +110,5 @@ int		main(void)
 	c = 'a';
 	i = 45;
 	u = 25;
-	ft_printf("%-s\n%-c %-d %-p %-i %-u %-x %-X", s, c, i, &s, i, u, i, i);
+	ft_printf("%-10s\n%-c %-d %-p %-i %-u %-x %-X", s, c, i, &s, i, u, i, i);
 }

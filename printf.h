@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   printf.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ldenis <ldenis@student.42lyon.fr>          +#+  +:+       +#+        */
+/*   By: laurinedenis <laurinedenis@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/13 14:58:55 by ldenis            #+#    #+#             */
-/*   Updated: 2021/01/04 10:44:54 by ldenis           ###   ########lyon.fr   */
+/*   Updated: 2021/01/04 17:13:36 by laurinedeni      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,9 @@ typedef struct			print_list
 	int					flag_point;
 	int					flag_etoile;
 	int					taille;
+	int					size_min;
+	int					size_max;
+	int					verif;
 	char				*print;
 	struct print_list	*next;
 }						print_list;
@@ -50,5 +53,6 @@ void		size(print_list *lst);
 void		fill_print(print_list *lst);
 void		zero(print_list *lst, const char *str);
 void		wildcard(print_list *lst, va_list ap);
+void		point(print_list *lst, va_list ap);
 
 #endif

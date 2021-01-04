@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   printf.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ldenis <ldenis@student.42lyon.fr>          +#+  +:+       +#+        */
+/*   By: laurinedenis <laurinedenis@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/16 11:51:27 by ldenis            #+#    #+#             */
-/*   Updated: 2021/01/04 10:58:58 by ldenis           ###   ########lyon.fr   */
+/*   Updated: 2021/01/04 18:21:01 by laurinedeni      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,13 +63,13 @@ int		ft_printf(const char *str, ...)
 	va_start(ap, str);
 	while (i < len)
 	{
+		// dprintf(1, "i = %zu\n", i);
 		if (str[i] == '%')
 		{
 			i++;
 			add_back_lst(&lst, init_struct());
 			while (is_c(str[i]) != 0 || is_f(str[i]) != 0)
 			{
-				// dprintf(1, "start = %zu\n", i);
 				if (is_c(str[i]) != 0)
 				{
 					lst->convert = str[i];
@@ -88,6 +88,8 @@ int		ft_printf(const char *str, ...)
 			// printf("flag_etoile = %d\n", lst->flag_etoile);
 			// printf("flag_tiret = %d\n", lst->flag_tiret);
 			// printf("taille = %d\n", lst->taille);
+			// printf("min = %d\n", lst->size_min);
+			// printf("max = %d\n", lst->size_max);
 			// printf("print = |%s|\n", lst->print);
 			lst = beg;
 		}
@@ -109,5 +111,5 @@ int		ft_printf(const char *str, ...)
 // 	c = 'a';
 // 	i = 45;
 // 	u = 25;
-// 	ft_printf("|%*16s|\n", 16, "bonjour");
+// 	ft_printf("|%c%c|\n", 'c', 0);
 // }

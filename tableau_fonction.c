@@ -6,7 +6,7 @@
 /*   By: laurinedenis <laurinedenis@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/16 13:34:32 by ldenis            #+#    #+#             */
-/*   Updated: 2020/12/26 14:41:47 by laurinedeni      ###   ########.fr       */
+/*   Updated: 2021/01/04 16:54:24 by laurinedeni      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,8 @@ void		print_x(va_list ap, print_list *lst)
 
 	i = va_arg(ap, unsigned int);
 	s = ft_itoa_hexa_unsi(i, "0123456789abcdef");
+	if (i == 0)
+		s = "0\0";
 	if (!(lst->print = ft_strfjoin(lst->print, s, 1)))
 		return ;
 	// ft_putstr_fd(s, 1);
@@ -78,6 +80,8 @@ void		print_X(va_list ap, print_list *lst)
 
 	i = va_arg(ap, unsigned int);
 	s = ft_itoa_hexa_unsi(i, "0123456789ABCDEF");
+	if (i == 0)
+		s = "0\0";
 	if (!(lst->print = ft_strfjoin(lst->print, s, 1)))
 		return ;
 	// ft_putstr_fd(s, 1);

@@ -6,7 +6,7 @@
 /*   By: ldenis <ldenis@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/18 13:59:46 by ldenis            #+#    #+#             */
-/*   Updated: 2020/12/29 15:58:55 by ldenis           ###   ########lyon.fr   */
+/*   Updated: 2021/01/04 10:58:44 by ldenis           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,10 +34,12 @@ int		add_flag(print_list *lst, char c, const char *str, int start, va_list ap)
 	{
 		if (lst->flag_etoile == 0)
 			lst->taille = ft_atoi(ft_substr(str, start, i));
-		zero(lst, ft_substr(str, start, ft_strlen(str)));
+		// zero(lst, ft_substr(str, start, ft_strlen(str)));
+		zero(lst, str);
 		return (start + j);
 	}
-	zero(lst, ft_substr(str, start, ft_strlen(str)));
+	// zero(lst, ft_substr(str, start, ft_strlen(str)));
+	// zero(lst, str);
 	return (start + 1);
 }
 
@@ -48,10 +50,14 @@ void	zero(print_list *lst, const char *str)
 	i = 0;
 	if (lst->taille == 0)
 		return ;
-	while (str[i] != 0 && is_f(str[i]) != 0)
+	while (str[i] != '%' && str[i])
 		i++;
-	if (i != ft_strlen(str))
+	if (str[i + 1] == '0')
 		lst->flag_0 = 1;
+	// while (str[i] != '0' && str[i])
+	// 	i++;
+	// if (i != ft_strlen(str))
+	// 	lst->flag_0 = 1;
 }
 
 void	fill_print(print_list *lst)
@@ -100,5 +106,8 @@ void		wildcard(print_list *lst, va_list ap)
 	lst->flag_etoile = 1;
 	lst->taille = va_arg(ap, int);
 	if (lst->taille < 0)
+	{
 		lst->taille = lst->taille * -1;
+		lst->flag_tiret = 1;
+	}
 }

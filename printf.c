@@ -6,7 +6,7 @@
 /*   By: ldenis <ldenis@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/16 11:51:27 by ldenis            #+#    #+#             */
-/*   Updated: 2020/12/29 15:55:00 by ldenis           ###   ########lyon.fr   */
+/*   Updated: 2021/01/04 10:58:58 by ldenis           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,15 +99,15 @@ int		ft_printf(const char *str, ...)
 	return (ft_strlen(ret));
 }
 
-int		main(void)
-{
-	char		c;
-	// char		s[4] = "str";
-	int			i;
-	unsigned int u;
+// int		main(void)
+// {
+// 	char		c;
+// 	// char		s[4] = "str";
+// 	int			i;
+// 	unsigned int u;
 
-	c = 'a';
-	i = 45;
-	u = 25;
-	ft_printf("|%*16s|\n", 16, "bonjour");
-}
+// 	c = 'a';
+// 	i = 45;
+// 	u = 25;
+// 	ft_printf("|%*16s|\n", 16, "bonjour");
+// }

@@ -6,7 +6,7 @@
 /*   By: laurinedenis <laurinedenis@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/18 13:59:46 by ldenis            #+#    #+#             */
-/*   Updated: 2021/01/04 17:26:45 by laurinedeni      ###   ########.fr       */
+/*   Updated: 2021/01/05 14:02:53 by laurinedeni      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,16 +30,18 @@ int		add_flag(print_list *lst, char c, const char *str, int start, va_list ap)
 		point(lst, ap);
 	else if (c == '*')
 		wildcard(lst, ap);
-	else
+	else if (lst->flag_point != 1)
 	{
 		if (lst->flag_etoile == 0)
 			lst->taille = ft_atoi(ft_substr(str, start, i));
-		// zero(lst, ft_substr(str, start, ft_strlen(str)));
 		zero(lst, str);
 		return (start + j);
 	}
-	// zero(lst, ft_substr(str, start, ft_strlen(str)));
-	// zero(lst, str);
+	else
+	{
+		lst->size_point = ft_atoi(ft_substr(str, start, i));
+		return (start + j);
+	}
 	return (start + 1);
 }
 
@@ -116,7 +118,11 @@ void		wildcard(print_list *lst, va_list ap)
 
 void		point(print_list *lst, va_list ap)
 {
+	// int		i;
+
 	lst->flag_point = 1;
-	lst->flag_0 = 1;
+	// lst->size_point = ft_atoi(ft_substr(str, 0, ))
+	// lst->flag_0 = 1;
 	(void)ap;
+	// return (i);
 }

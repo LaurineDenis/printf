@@ -6,7 +6,7 @@
 /*   By: laurinedenis <laurinedenis@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/16 11:51:27 by ldenis            #+#    #+#             */
-/*   Updated: 2021/01/04 18:21:01 by laurinedeni      ###   ########.fr       */
+/*   Updated: 2021/01/05 14:37:22 by laurinedeni      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,8 +88,7 @@ int		ft_printf(const char *str, ...)
 			// printf("flag_etoile = %d\n", lst->flag_etoile);
 			// printf("flag_tiret = %d\n", lst->flag_tiret);
 			// printf("taille = %d\n", lst->taille);
-			// printf("min = %d\n", lst->size_min);
-			// printf("max = %d\n", lst->size_max);
+			// printf("point = %d\n", lst->size_point);
 			// printf("print = |%s|\n", lst->print);
 			lst = beg;
 		}
@@ -111,5 +110,6 @@ int		ft_printf(const char *str, ...)
 // 	c = 'a';
 // 	i = 45;
 // 	u = 25;
-// 	ft_printf("|%c%c|\n", 'c', 0);
+// 	printf("|%-2s|\n",  NULL);
+// 	ft_printf("|%-2s|\n",  NULL);
 // }

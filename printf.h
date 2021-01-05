@@ -6,7 +6,7 @@
 /*   By: laurinedenis <laurinedenis@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/13 14:58:55 by ldenis            #+#    #+#             */
-/*   Updated: 2021/01/04 17:13:36 by laurinedeni      ###   ########.fr       */
+/*   Updated: 2021/01/05 12:41:46 by laurinedeni      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,7 @@ typedef struct			print_list
 	int					flag_point;
 	int					flag_etoile;
 	int					taille;
-	int					size_min;
-	int					size_max;
+	int					size_point;
 	int					verif;
 	char				*print;
 	struct print_list	*next;

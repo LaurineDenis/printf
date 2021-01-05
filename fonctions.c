@@ -6,7 +6,7 @@
 /*   By: laurinedenis <laurinedenis@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/16 12:16:22 by ldenis            #+#    #+#             */
-/*   Updated: 2021/01/04 18:27:55 by laurinedeni      ###   ########.fr       */
+/*   Updated: 2021/01/05 14:37:00 by laurinedeni      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,9 +31,32 @@ void	print_s(va_list ap, print_list *lst)
 
 	s = va_arg(ap, char *);
 	if (!s)
+	{
+		// printf("s = %s\n", s);
+		s = "(null)";
+		if (lst->flag_point == 1)
+		{
+			s = ft_substr(s, 0, lst->size_point);
+			if ((size_t)lst->size_point > ft_strlen(s))
+				lst->size_point = ft_strlen(s);
+		}
+		else
+			s = ft_substr(s, 0, ft_strlen(s));
+		if (!(lst->print = ft_strfjoin(lst->print, s, 1)))
+			return ;
+		free(s);
 		return ;
+	}
+	if (lst->flag_point == 1)
+	{
+		s = ft_substr(s, 0, lst->size_point);
+		if ((size_t)lst->size_point > ft_strlen(s))
+			lst->size_point = ft_strlen(s);
+	}
 	if (!(lst->print = ft_strfjoin(lst->print, s, 1)))
 		return ;
+	if (lst->flag_point == 1)
+		free(s);
 	// printf("print s = %s\n", lst->print);
 }
 

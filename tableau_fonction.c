@@ -6,7 +6,7 @@
 /*   By: laurinedenis <laurinedenis@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/16 13:34:32 by ldenis            #+#    #+#             */
-/*   Updated: 2021/01/04 16:54:24 by laurinedeni      ###   ########.fr       */
+/*   Updated: 2021/01/05 12:54:11 by laurinedeni      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,8 @@ print_list	*init_struct(void)
 	new->flag_point = 0;
 	new->flag_etoile = 0;
 	new->taille = 0;
+	new->size_point = 0;
+	new->verif = 0;
 	new->next = NULL;
 	new->print = ft_calloc(1, 1);
 	return (new);

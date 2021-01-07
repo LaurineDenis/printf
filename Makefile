@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: ldenis <ldenis@student.42lyon.fr>          +#+  +:+       +#+         #
+#    By: laurinedenis <laurinedenis@student.42.f    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/12/13 14:57:14 by ldenis            #+#    #+#              #
-#    Updated: 2020/12/13 14:58:20 by ldenis           ###   ########lyon.fr    #
+#    Updated: 2021/01/07 16:37:46 by laurinedeni      ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ SRCS		= printf.c flags.c fonctions.c tableau_fonction.c utils.c
 
 OBJS		= ${SRCS:.c=.o}
 
-HEADER		= printf.h
+HEADER		= ft_printf.h
 
 RM			=	rm -f
 
@@ -26,7 +26,7 @@ CFLAGS		=	-Wall -Werror -Wextra
 
 LIB			= lib/libft.a
 
-%.o:		%.c printf.h
+%.o:		%.c ft_printf.h
 			@echo "\033[0;32m [OK] \033[0m       \033[0;33m Compiling:\033[0m" $<
 			@${CC} ${CFLAGS} -I includes -c $< -o $@
 

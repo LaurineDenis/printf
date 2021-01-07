@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   printf.h                                           :+:      :+:    :+:   */
+/*   ft_ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: laurinedenis <laurinedenis@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/13 14:58:55 by ldenis            #+#    #+#             */
-/*   Updated: 2021/01/05 12:41:46 by laurinedeni      ###   ########.fr       */
+/*   Updated: 2021/01/07 16:36:45 by laurinedeni      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PRINTF_H
-# define PRINTF_H
+#ifndef FT_PRINTF_H
+# define FT_PRINTF_H
 
 typedef struct			print_list
 {
@@ -20,9 +20,10 @@ typedef struct			print_list
 	int					flag_tiret;
 	int					flag_point;
 	int					flag_etoile;
-	int					taille;
+	int					size;
 	int					size_point;
 	int					verif;
+	int					backslash;
 	char				*print;
 	struct print_list	*next;
 }						print_list;
@@ -52,6 +53,7 @@ void		size(print_list *lst);
 void		fill_print(print_list *lst);
 void		zero(print_list *lst, const char *str);
 void		wildcard(print_list *lst, va_list ap);
-void		point(print_list *lst, va_list ap);
+void		point(print_list *lst, const char *str);
+void		print_per(va_list ap, print_list *lst);
 
 #endif

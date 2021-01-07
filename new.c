@@ -1,37 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.c                                            :+:      :+:    :+:   */
+/*   new.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: laurinedenis <laurinedenis@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/12/17 12:51:30 by ldenis            #+#    #+#             */
+/*   Created: 2021/01/06 15:20:39 by laurinedeni       #+#    #+#             */
 /*   Updated: 2021/01/07 16:37:46 by laurinedeni      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-char	*ft_strfjoin(char *s1, char *s2, int is_free)
+int     new_printf(print_list *lst)
 {
-	size_t		len;
-	char		*str;
+    int     i;
+    int     j;
+    char    *ret;
+    char    *fill;
 
-	if (!s1)
-		return (NULL);
-	len = ft_strlen(s1) + ft_strlen(s2);
-	if (!(str = (char *)ft_calloc(sizeof(char), len + 1)))
-		return (NULL);
-	ft_memcpy((void *)str, (const void *)s1, ft_strlen(s1));
-	ft_strlcat((char *)str, (char *)s2, len + 2);
-	if (is_free == 1)
-		free(s1);
-	else if (is_free == 2)
-		free(s2);
-	else if (is_free != 0)
-	{
-		free(s1);
-		free(s2);
-	}
-	return (str);
+    i = lst->size_point - ft_strlen(lst->print);
+    j = 0;
+    fill = (lst->flag_0 == 1) ? "0\0" : " \0";
+    while (j++ < i)
+        ret[j] = fill[0];
+    if (lst->flag_tiret == 1)
+        lst->print = ft_strfjoin(lst->print, " \0", 1);
+    else
+        lst->print = ft_strfjoin(ret, lst->print, 2);
+    
 }

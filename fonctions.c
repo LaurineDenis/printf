@@ -6,11 +6,11 @@
 /*   By: laurinedenis <laurinedenis@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/16 12:16:22 by ldenis            #+#    #+#             */
-/*   Updated: 2021/01/05 14:37:00 by laurinedeni      ###   ########.fr       */
+/*   Updated: 2021/01/07 18:27:49 by laurinedeni      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "printf.h"
+#include "ft_printf.h"
 
 void	print_c(va_list ap, print_list *lst)
 {
@@ -20,9 +20,10 @@ void	print_c(va_list ap, print_list *lst)
 	c = (char)va_arg(ap, int);
 	s[0] = c;
 	s[1] = '\0';
+	if (!c)
+		lst->backslash = 1;
 	if (!(lst->print = ft_strfjoin(lst->print, s, 1)))
 		return ;
-	// dprintf(1, "print c = %s\n", lst->print);
 }
 
 void	print_s(va_list ap, print_list *lst)
@@ -32,7 +33,6 @@ void	print_s(va_list ap, print_list *lst)
 	s = va_arg(ap, char *);
 	if (!s)
 	{
-		// printf("s = %s\n", s);
 		s = "(null)";
 		if (lst->flag_point == 1)
 		{
@@ -57,7 +57,6 @@ void	print_s(va_list ap, print_list *lst)
 		return ;
 	if (lst->flag_point == 1)
 		free(s);
-	// printf("print s = %s\n", lst->print);
 }
 
 void	print_d_i(va_list ap, print_list *lst)
@@ -67,16 +66,20 @@ void	print_d_i(va_list ap, print_list *lst)
 
 	i = va_arg(ap, int);
 	ret = ft_itoa(i);
-	if (i < 0 && lst->flag_0 == 1 && lst->flag_point == 0)
+	if (i < 0 && lst->size_point != 0)
 	{
 		lst->verif = 1;
 		ret = ft_substr(ret, 1, ft_strlen(ret));
 	}
+	if (i == 0 && lst->flag_point == 1 && lst->size == 0 && lst->size_point == 0)
+	{
+		lst->print = ft_calloc(1, 1);
+		free(ret);
+		return ;
+	}
 	if (!(lst->print = ft_strfjoin(lst->print, ret, 1)))
 		return ;
 	free(ret);
-	// ft_putnbr_fd(i, 1);
-	// printf("print d/i = %s\n", lst->print);
 }
 
 void	print_p(va_list ap, print_list *lst)
@@ -86,13 +89,12 @@ void	print_p(va_list ap, print_list *lst)
 
 	i = va_arg(ap, long long int);
 	s = ft_itoa_hexa_l(i, "0123456789abcdef");
-	if (!s || ft_strlen(s) == 0)
+	if (lst->flag_point == 0 && (!s || ft_strlen(s) == 0))
 		s = "0\0";
 	if (!(lst->print = ft_strfjoin(lst->print, "0x", 1)))
 		return ;
 	if (!(lst->print = ft_strfjoin(lst->print, s, 1)))
 		return ;
-	// printf("print p = %s\n", lst->print);
 }
 
 void		print_u(va_list ap, print_list *lst)
@@ -102,7 +104,10 @@ void		print_u(va_list ap, print_list *lst)
 
 	i = va_arg(ap, unsigned int);
 	ret = ft_itoa_unsi(i);
+	if (i == 0)
+		ret = "0\0";
+	if (i == 0 && lst->size == 0 && lst->size_point == 0 && lst->flag_point == 1)
+		return ;
 	if (!(lst->print = ft_strfjoin(lst->print, ret, 1)))
 		return ;
-	// printf("print u = %s\n", lst->print);
 }

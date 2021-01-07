@@ -6,18 +6,30 @@
 /*   By: laurinedenis <laurinedenis@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/16 11:51:27 by ldenis            #+#    #+#             */
-/*   Updated: 2021/01/05 14:37:22 by laurinedeni      ###   ########.fr       */
+/*   Updated: 2021/01/07 18:18:21 by laurinedeni      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "printf.h"
+#include "ft_printf.h"
+
+void	print_per(va_list ap, print_list *lst)
+{
+	char	s[2];
+
+	s[0] = '%';
+	s[1] = '\0';
+	(void)ap;
+	if (!(lst->print = ft_strfjoin(lst->print, s, 1)))
+		return ;
+	// dprintf(1, "print c = %s\n", lst->print);
+}
 
 int		is_c(char c)
 {
 	char	*convert;
 	int		i;
 
-	convert = "csdpuixX";
+	convert = "csdpuixX%";
 	i = 0;
 	while (convert[i])
 	{
@@ -87,11 +99,13 @@ int		ft_printf(const char *str, ...)
 			// printf("flag_point = %d\n", lst->flag_point);
 			// printf("flag_etoile = %d\n", lst->flag_etoile);
 			// printf("flag_tiret = %d\n", lst->flag_tiret);
-			// printf("taille = %d\n", lst->taille);
-			// printf("point = %d\n", lst->size_point);
+			// printf("taille = %d\n", lst->size);
+			// printf("size_point = %d\n", lst->size_point);
 			// printf("print = |%s|\n", lst->print);
 			lst = beg;
 		}
+		if (str[i] == '%')
+			continue ;
 		ret = ft_strfjoin(ret, ft_substr(str, i, 1), 3);
 		i++;
 	}
@@ -108,8 +122,8 @@ int		ft_printf(const char *str, ...)
 // 	unsigned int u;
 
 // 	c = 'a';
-// 	i = 45;
+// 	i = -2;
 // 	u = 25;
-// 	printf("|%-2s|\n",  NULL);
-// 	ft_printf("|%-2s|\n",  NULL);
+// 	printf("|%c%c|\n", 'c', 0);
+// 	ft_printf("|%c%c|\n", 'c', 0);
 // }

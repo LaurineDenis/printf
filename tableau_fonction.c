@@ -5,18 +5,17 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: laurinedenis <laurinedenis@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/12/16 13:34:32 by ldenis            #+#    #+#             */
-/*   Updated: 2021/01/07 17:16:24 by laurinedeni      ###   ########.fr       */
+/*   Created: 2021/01/08 12:19:43 by laurinedeni       #+#    #+#             */
+/*   Updated: 2021/01/08 12:22:15 by laurinedeni      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-#include <assert.h>
 
 void		init_tab(void (**tab_fonction)(va_list, print_list *))
 {
 	tab_fonction[37] = &print_per;
-	tab_fonction[88] = &print_X;
+	tab_fonction[88] = &print_bigx;
 	tab_fonction[99] = &print_c;
 	tab_fonction[100] = &print_d_i;
 	tab_fonction[105] = &print_d_i;
@@ -57,13 +56,12 @@ void		add_back_lst(print_list **first, print_list *new)
 		while ((*first)->next)
 			(*first) = (*first)->next;
 		(*first)->next = new;
-		// (*first) = save;
 	}
 }
 
 void		print_x(va_list ap, print_list *lst)
 {
-	char		*s;
+	char				*s;
 	unsigned int		i;
 
 	i = va_arg(ap, unsigned int);
@@ -74,13 +72,11 @@ void		print_x(va_list ap, print_list *lst)
 		return ;
 	if (!(lst->print = ft_strfjoin(lst->print, s, 1)))
 		return ;
-	// ft_putstr_fd(s, 1);
-	// printf("print x= %s\n", lst->print);
 }
 
-void		print_X(va_list ap, print_list *lst)
+void		print_bigx(va_list ap, print_list *lst)
 {
-	char		*s;
+	char				*s;
 	unsigned int		i;
 
 	i = va_arg(ap, unsigned int);
@@ -91,7 +87,4 @@ void		print_X(va_list ap, print_list *lst)
 		return ;
 	if (!(lst->print = ft_strfjoin(lst->print, s, 1)))
 		return ;
-	// ft_putstr_fd(s, 1);
-	// printf("print X= %s\n", lst->print);
 }
-

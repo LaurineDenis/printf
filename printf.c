@@ -6,7 +6,7 @@
 /*   By: laurinedenis <laurinedenis@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/16 11:51:27 by ldenis            #+#    #+#             */
-/*   Updated: 2021/01/07 18:18:21 by laurinedeni      ###   ########.fr       */
+/*   Updated: 2021/01/08 12:37:02 by laurinedeni      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@ void	print_per(va_list ap, print_list *lst)
 	(void)ap;
 	if (!(lst->print = ft_strfjoin(lst->print, s, 1)))
 		return ;
-	// dprintf(1, "print c = %s\n", lst->print);
 }
 
 int		is_c(char c)
@@ -59,56 +58,15 @@ int		is_f(char c)
 int		ft_printf(const char *str, ...)
 {
 	va_list		ap;
-	size_t		i;
-	size_t		len;
 	print_list	*lst;
-	print_list	*beg;
 	char		*ret;
 	void		(*tab_fonction[121])(va_list, print_list *);
 
-	i = 0;
-	len = ft_strlen(str);
 	init_tab(tab_fonction);
 	lst = NULL;
-	beg = lst;
 	ret = ft_calloc(1, 1);
 	va_start(ap, str);
-	while (i < len)
-	{
-		// dprintf(1, "i = %zu\n", i);
-		if (str[i] == '%')
-		{
-			i++;
-			add_back_lst(&lst, init_struct());
-			while (is_c(str[i]) != 0 || is_f(str[i]) != 0)
-			{
-				if (is_c(str[i]) != 0)
-				{
-					lst->convert = str[i];
-					(tab_fonction[(int)str[i]])(ap, lst);
-					fill_print(lst);
-					ret = ft_strfjoin(ret, lst->print, 1);
-					i++;
-					break;
-				}
-				i = add_flag(lst, str[i], str, i, ap);
-			}
-			// printf("----------new_arg----------\n");
-			// printf("convert = %c\n", lst->convert);
-			// printf("flag_0 = %d\n", lst->flag_0);
-			// printf("flag_point = %d\n", lst->flag_point);
-			// printf("flag_etoile = %d\n", lst->flag_etoile);
-			// printf("flag_tiret = %d\n", lst->flag_tiret);
-			// printf("taille = %d\n", lst->size);
-			// printf("size_point = %d\n", lst->size_point);
-			// printf("print = |%s|\n", lst->print);
-			lst = beg;
-		}
-		if (str[i] == '%')
-			continue ;
-		ret = ft_strfjoin(ret, ft_substr(str, i, 1), 3);
-		i++;
-	}
+	ret = parse(ret, str, lst, ap);
 	write(1, ret, ft_strlen(ret));
 	va_end(ap);
 	return (ft_strlen(ret));

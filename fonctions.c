@@ -6,7 +6,7 @@
 /*   By: laurinedenis <laurinedenis@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/16 12:16:22 by ldenis            #+#    #+#             */
-/*   Updated: 2021/01/07 18:27:49 by laurinedeni      ###   ########.fr       */
+/*   Updated: 2021/01/08 12:03:47 by laurinedeni      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,12 +40,6 @@ void	print_s(va_list ap, print_list *lst)
 			if ((size_t)lst->size_point > ft_strlen(s))
 				lst->size_point = ft_strlen(s);
 		}
-		else
-			s = ft_substr(s, 0, ft_strlen(s));
-		if (!(lst->print = ft_strfjoin(lst->print, s, 1)))
-			return ;
-		free(s);
-		return ;
 	}
 	if (lst->flag_point == 1)
 	{
@@ -71,11 +65,14 @@ void	print_d_i(va_list ap, print_list *lst)
 		lst->verif = 1;
 		ret = ft_substr(ret, 1, ft_strlen(ret));
 	}
-	if (i == 0 && lst->flag_point == 1 && lst->size == 0 && lst->size_point == 0)
+	if (i == 0 && lst->flag_point == 1)
 	{
-		lst->print = ft_calloc(1, 1);
-		free(ret);
-		return ;
+		if (lst->size == 0 && lst->size_point == 0)
+		{
+			lst->print = ft_calloc(1, 1);
+			free(ret);
+			return ;
+		}
 	}
 	if (!(lst->print = ft_strfjoin(lst->print, ret, 1)))
 		return ;
@@ -84,7 +81,7 @@ void	print_d_i(va_list ap, print_list *lst)
 
 void	print_p(va_list ap, print_list *lst)
 {
-	char		*s;
+	char					*s;
 	long long int			i;
 
 	i = va_arg(ap, long long int);
@@ -97,7 +94,7 @@ void	print_p(va_list ap, print_list *lst)
 		return ;
 }
 
-void		print_u(va_list ap, print_list *lst)
+void	print_u(va_list ap, print_list *lst)
 {
 	unsigned int		i;
 	char				*ret;
@@ -106,8 +103,11 @@ void		print_u(va_list ap, print_list *lst)
 	ret = ft_itoa_unsi(i);
 	if (i == 0)
 		ret = "0\0";
-	if (i == 0 && lst->size == 0 && lst->size_point == 0 && lst->flag_point == 1)
-		return ;
+	if (i == 0 && lst->size == 0)
+	{
+		if (lst->size_point == 0 && lst->flag_point == 1)
+			return ;
+	}
 	if (!(lst->print = ft_strfjoin(lst->print, ret, 1)))
 		return ;
 }

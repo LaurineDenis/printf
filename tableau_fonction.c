@@ -6,13 +6,13 @@
 /*   By: laurinedenis <laurinedenis@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/08 12:19:43 by laurinedeni       #+#    #+#             */
-/*   Updated: 2021/01/08 12:22:15 by laurinedeni      ###   ########.fr       */
+/*   Updated: 2021/01/11 11:28:46 by laurinedeni      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void		init_tab(void (**tab_fonction)(va_list, print_list *))
+void		init_tab(void (**tab_fonction)(va_list, print_list *, char *))
 {
 	tab_fonction[37] = &print_per;
 	tab_fonction[88] = &print_bigx;
@@ -39,6 +39,8 @@ print_list	*init_struct(void)
 	new->size = 0;
 	new->size_point = 0;
 	new->verif = 0;
+	new->backslash = 0;
+	new->index_b = 0;
 	new->next = NULL;
 	new->print = ft_calloc(1, 1);
 	return (new);
@@ -46,25 +48,23 @@ print_list	*init_struct(void)
 
 void		add_back_lst(print_list **first, print_list *new)
 {
-	print_list		*save;
-
-	save = (*first);
-	if (!(*first))
+	if ((*first) == NULL)
 		(*first) = new;
 	else
 	{
-		while ((*first)->next)
+		while ((*first)->next != NULL)
 			(*first) = (*first)->next;
 		(*first)->next = new;
 	}
 }
 
-void		print_x(va_list ap, print_list *lst)
+void		print_x(va_list ap, print_list *lst, char *str)
 {
 	char				*s;
 	unsigned int		i;
 
 	i = va_arg(ap, unsigned int);
+	(void)str;
 	s = ft_itoa_hexa_unsi(i, "0123456789abcdef");
 	if (i == 0)
 		s = "0\0";
@@ -74,12 +74,13 @@ void		print_x(va_list ap, print_list *lst)
 		return ;
 }
 
-void		print_bigx(va_list ap, print_list *lst)
+void		print_bigx(va_list ap, print_list *lst, char *str)
 {
 	char				*s;
 	unsigned int		i;
 
 	i = va_arg(ap, unsigned int);
+	(void)str;
 	s = ft_itoa_hexa_unsi(i, "0123456789ABCDEF");
 	if (i == 0)
 		s = "0\0";

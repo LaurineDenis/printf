@@ -6,7 +6,7 @@
 /*   By: laurinedenis <laurinedenis@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/18 13:59:46 by ldenis            #+#    #+#             */
-/*   Updated: 2021/01/08 11:56:43 by laurinedeni      ###   ########.fr       */
+/*   Updated: 2021/01/12 17:14:48 by laurinedeni      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,8 @@ void		point(print_list *lst, const char *str)
 
 	i = 0;
 	lst->flag_point = 1;
+	if (lst->flag_point == 1 && lst->size > 0)
+		lst->flag_0 = 1;
 	if (lst->flag_etoile == 1 && lst->size_point == 0)
 		lst->flag_0 = 1;
 	while (str[i] != '%' && str[i])
@@ -70,6 +72,8 @@ void		fill_print(print_list *lst)
 {
 	int		i;
 
+	if (lst->size_point <= 1)
+		lst->flag_0 = 0;
 	if (lst->convert == '%')
 		lst->size_point = 1;
 	if (lst->size < lst->size_point)
@@ -77,6 +81,9 @@ void		fill_print(print_list *lst)
 	if (lst->size != 0)
 	{
 		i = ft_strlen(lst->print);
+		if (i == 0 && lst->backslash == 1)
+			i++;
+		// dprintf(1, "i = %d\n", i);
 		while (i++ < lst->size)
 		{
 			if (lst->flag_tiret == 1)
@@ -85,7 +92,9 @@ void		fill_print(print_list *lst)
 				lst->print = ft_strfjoin("0\0", lst->print, 2);
 			else
 				lst->print = ft_strfjoin(" \0", lst->print, 2);
+			lst->index_b++;
 		}
+		lst->index_b -= 2;
 	}
 	if (lst->verif == 1)
 		verif(lst);

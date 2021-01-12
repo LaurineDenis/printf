@@ -60,5 +60,6 @@ void		point(print_list *lst, const char *str);
 void		verif(print_list *lst);
 void		backslash(print_list *lst, char *str);
 int			aff_zero(print_list *lst, char *ret, size_t len);
+int			verif_fill(print_list *lst, int i);
 
 #endif

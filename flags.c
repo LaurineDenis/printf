@@ -6,7 +6,7 @@
 /*   By: laurinedenis <laurinedenis@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/18 13:59:46 by ldenis            #+#    #+#             */
-/*   Updated: 2021/01/12 17:14:48 by laurinedeni      ###   ########.fr       */
+/*   Updated: 2021/01/12 17:25:22 by laurinedeni      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,18 +72,10 @@ void		fill_print(print_list *lst)
 {
 	int		i;
 
-	if (lst->size_point <= 1)
-		lst->flag_0 = 0;
-	if (lst->convert == '%')
-		lst->size_point = 1;
-	if (lst->size < lst->size_point)
-		lst->size = lst->size_point;
+	i = ft_strlen(lst->print);
+	i = verif_fill(lst, i);
 	if (lst->size != 0)
 	{
-		i = ft_strlen(lst->print);
-		if (i == 0 && lst->backslash == 1)
-			i++;
-		// dprintf(1, "i = %d\n", i);
 		while (i++ < lst->size)
 		{
 			if (lst->flag_tiret == 1)

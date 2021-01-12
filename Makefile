@@ -6,13 +6,13 @@
 #    By: laurinedenis <laurinedenis@student.42.f    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/12/13 14:57:14 by ldenis            #+#    #+#              #
-#    Updated: 2021/01/07 16:37:46 by laurinedeni      ###   ########.fr        #
+#    Updated: 2021/01/12 17:27:22 by laurinedeni      ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME		= printf.a
 
-SRCS		= printf.c flags.c fonctions.c tableau_fonction.c utils.c 
+SRCS		= printf.c flags.c fonctions.c tableau_fonction.c utils.c verif.c
 
 OBJS		= ${SRCS:.c=.o}
 

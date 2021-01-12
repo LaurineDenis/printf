@@ -6,7 +6,7 @@
 /*   By: laurinedenis <laurinedenis@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/16 12:16:22 by ldenis            #+#    #+#             */
-/*   Updated: 2021/01/12 17:09:52 by laurinedeni      ###   ########.fr       */
+/*   Updated: 2021/01/12 17:26:39 by laurinedeni      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,30 +27,6 @@ void	print_c(va_list ap, print_list *lst, char *str)
 	}
 	if (!(lst->print = ft_strfjoin(lst->print, s, 1)))
 		return ;
-}
-
-void	backslash(print_list *lst, char *str)
-{
-	int			i;
-
-	i = 0;
-	// lst->backslash = 1;
-	while (str[i])
-	{
-		if (str[i] == '%')
-		{
-			while (is_c(str[i]) != 0 || is_f(str[i]) != 0)
-			{
-				if (str[i] == 'c')
-					lst->index_b = i - 1;
-				// dprintf(1, "i = %d\n", i);
-				// dprintf(1, "str = %c\n", str[i]);
-				i++;
-			}
-		}
-		i++;
-	}
-	// printf("back index = %d\n", lst->index_b);
 }
 
 void	print_s(va_list ap, print_list *lst, char *str)

@@ -6,13 +6,18 @@
 #    By: laurinedenis <laurinedenis@student.42.f    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/12/13 14:57:14 by ldenis            #+#    #+#              #
-#    Updated: 2021/01/12 17:27:22 by laurinedeni      ###   ########.fr        #
+#    Updated: 2021/01/13 12:36:24 by laurinedeni      ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME		= printf.a
 
-SRCS		= printf.c flags.c fonctions.c tableau_fonction.c utils.c verif.c
+SRC_PATH	= ./src/
+
+SRCS		= $(addprefix ${SRC_PATH},\
+			printf.c flags.c fonctions.c \
+			utils.c verif.c aff.c linked_list.c \
+			print_x_bigx.c grid_fonction.c parsing.c)
 
 OBJS		= ${SRCS:.c=.o}
 

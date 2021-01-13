@@ -45,7 +45,7 @@ void		print_per(va_list ap, print_list *lst, char *str);
 char		*parse(char	*ret, const char *str, print_list **lst, va_list ap);
 print_list	*init_struct(void);
 void		add_back_lst(print_list **first, print_list *new);
-void		init_tab(void (**tab_fonction)(va_list, print_list *, char *));
+void		init_tab(void (*grid[121])(va_list, print_list *, char *));
 char		*ft_strfjoin(char *s1, char *s2, int is_free);
 int			add_flag(print_list *lst, const char *str, int start, va_list ap);
 int			is_c(char c);
@@ -61,5 +61,7 @@ void		verif(print_list *lst);
 void		backslash(print_list *lst, char *str);
 int			aff_zero(print_list *lst, char *ret, size_t len);
 int			verif_fill(print_list *lst, int i);
+int			aff_printf(print_list *lst, int len, int aff, char *ret);
+char		*parsing(int i, const char *str, print_list **lst, va_list ap);
 
 #endif

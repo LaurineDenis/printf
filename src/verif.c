@@ -6,13 +6,13 @@
 /*   By: laurinedenis <laurinedenis@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/12 17:25:15 by laurinedeni       #+#    #+#             */
-/*   Updated: 2021/01/12 17:26:37 by laurinedeni      ###   ########.fr       */
+/*   Updated: 2021/01/13 12:37:33 by laurinedeni      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "../ft_printf.h"
 
-int			verif_fill(print_list *lst, int i)
+int		verif_fill(print_list *lst, int i)
 {
 	if (lst->size_point <= 1)
 		lst->flag_0 = 0;

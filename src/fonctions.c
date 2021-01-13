@@ -6,11 +6,11 @@
 /*   By: laurinedenis <laurinedenis@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/16 12:16:22 by ldenis            #+#    #+#             */
-/*   Updated: 2021/01/12 17:26:39 by laurinedeni      ###   ########.fr       */
+/*   Updated: 2021/01/13 12:37:05 by laurinedeni      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "../ft_printf.h"
 
 void	print_c(va_list ap, print_list *lst, char *str)
 {

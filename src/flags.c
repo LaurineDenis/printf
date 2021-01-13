@@ -6,11 +6,11 @@
 /*   By: laurinedenis <laurinedenis@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/18 13:59:46 by ldenis            #+#    #+#             */
-/*   Updated: 2021/01/12 17:25:22 by laurinedeni      ###   ########.fr       */
+/*   Updated: 2021/01/13 12:37:00 by laurinedeni      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "../ft_printf.h"
 
 int			add_flag(print_list *lst, const char *str, int start, va_list ap)
 {

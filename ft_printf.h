@@ -31,7 +31,7 @@ typedef struct			print_list
 
 #include <stdarg.h>
 #include <stdio.h>
-#include "lib/libft.h"
+#include "libft/libft.h"
 
 int			ft_printf(const char *, ...);
 void		print_c(va_list ap, print_list *lst, char *str);

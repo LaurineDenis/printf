@@ -6,13 +6,13 @@
 /*   By: laurinedenis <laurinedenis@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/13 12:18:46 by laurinedeni       #+#    #+#             */
-/*   Updated: 2021/01/13 15:51:39 by laurinedeni      ###   ########.fr       */
+/*   Updated: 2021/01/14 11:38:02 by laurinedeni      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_printf.h"
 
-int		main(void)
+int		ft_main(void)
 {
 	char			c;
 	char			*s;
@@ -25,4 +25,10 @@ int		main(void)
 	u = 25;
 	printf("1 printf = \t|%s|\n", s);
 	ft_printf("1 ft_printf = \t|%s|\n", s);
+}
+
+int		main(void)
+{
+	ft_main();
+	while (1);
 }

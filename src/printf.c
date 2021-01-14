@@ -6,7 +6,7 @@
 /*   By: laurinedenis <laurinedenis@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/16 11:51:27 by ldenis            #+#    #+#             */
-/*   Updated: 2021/01/13 12:37:26 by laurinedeni      ###   ########.fr       */
+/*   Updated: 2021/01/14 12:08:13 by laurinedeni      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,38 +22,6 @@ void	print_per(va_list ap, print_list *lst, char *str)
 	(void)ap;
 	if (!(lst->print = ft_strfjoin(lst->print, s, 1)))
 		return ;
-}
-
-int		is_c(char c)
-{
-	char	*convert;
-	int		i;
-
-	convert = "csdpuixX%";
-	i = 0;
-	while (convert[i])
-	{
-		if (convert[i] == c)
-			return (c);
-		i++;
-	}
-	return (0);
-}
-
-int		is_f(char c)
-{
-	char	*flag;
-	int		i;
-
-	flag = "-.*0123456789";
-	i = 0;
-	while (flag[i])
-	{
-		if (flag[i] == c)
-			return (flag[i]);
-		i++;
-	}
-	return (0);
 }
 
 int		ft_printf(const char *str, ...)
@@ -72,5 +40,7 @@ int		ft_printf(const char *str, ...)
 	len = ft_strlen(ret);
 	len = aff_zero(lst, ret, len);
 	va_end(ap);
+	lst_free(lst);
+	free(ret);
 	return (len);
 }

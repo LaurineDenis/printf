@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: ldenis <ldenis@student.42lyon.fr>          +#+  +:+       +#+         #
+#    By: laurinedenis <laurinedenis@student.42.f    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/11/24 11:44:21 by ldenis            #+#    #+#              #
-#    Updated: 2020/12/18 12:14:50 by ldenis           ###   ########lyon.fr    #
+#    Updated: 2021/01/14 11:58:53 by laurinedeni      ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 

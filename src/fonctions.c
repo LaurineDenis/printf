@@ -6,7 +6,7 @@
 /*   By: laurinedenis <laurinedenis@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/16 12:16:22 by ldenis            #+#    #+#             */
-/*   Updated: 2021/01/13 12:37:05 by laurinedeni      ###   ########.fr       */
+/*   Updated: 2021/01/14 12:04:54 by laurinedeni      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,7 @@ void	print_d_i(va_list ap, print_list *lst, char *str)
 			return ;
 		}
 	}
-	if (!(lst->print = ft_strfjoin(lst->print, ret, 1)))
+	if (!(lst->print = ft_strfjoin(lst->print, ret, 3)))
 		return ;
 	if (i < 0 && lst->flag_0 == 1 && lst->flag_point == 1)
 	{
@@ -83,7 +83,6 @@ void	print_d_i(va_list ap, print_list *lst, char *str)
 		lst->verif = 1;
 		lst->print = ft_substr(lst->print, 1, ft_strlen(lst->print));
 	}
-	free(ret);
 }
 
 void	print_p(va_list ap, print_list *lst, char *str)

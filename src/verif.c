@@ -6,7 +6,7 @@
 /*   By: laurinedenis <laurinedenis@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/12 17:25:15 by laurinedeni       #+#    #+#             */
-/*   Updated: 2021/01/13 12:37:33 by laurinedeni      ###   ########.fr       */
+/*   Updated: 2021/01/14 12:19:21 by laurinedeni      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,4 +43,13 @@ void	backslash(print_list *lst, char *str)
 		}
 		i++;
 	}
+}
+
+void		verif(print_list *lst)
+{
+	if (lst->flag_point == 0 && lst->convert == 'i')
+		lst->print = ft_substr(lst->print, 1, ft_strlen(lst->print));
+	if (lst->convert == 'd' && lst->flag_point == 0)
+		lst->print = ft_substr(lst->print, 1, ft_strlen(lst->print));
+	lst->print = ft_strfjoin("-\0", lst->print, 2);
 }

@@ -6,7 +6,7 @@
 /*   By: laurinedenis <laurinedenis@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/17 12:51:30 by ldenis            #+#    #+#             */
-/*   Updated: 2021/01/13 12:37:29 by laurinedeni      ###   ########.fr       */
+/*   Updated: 2021/01/14 12:20:12 by laurinedeni      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,11 +52,34 @@ int			is_num(char c)
 	return (0);
 }
 
-void		verif(print_list *lst)
+int		is_c(char c)
 {
-	if (lst->flag_point == 0 && lst->convert == 'i')
-		lst->print = ft_substr(lst->print, 1, ft_strlen(lst->print));
-	if (lst->convert == 'd' && lst->flag_point == 0)
-		lst->print = ft_substr(lst->print, 1, ft_strlen(lst->print));
-	lst->print = ft_strfjoin("-\0", lst->print, 2);
+	char	*convert;
+	int		i;
+
+	convert = "csdpuixX%";
+	i = 0;
+	while (convert[i])
+	{
+		if (convert[i] == c)
+			return (c);
+		i++;
+	}
+	return (0);
+}
+
+int		is_f(char c)
+{
+	char	*flag;
+	int		i;
+
+	flag = "-.*0123456789";
+	i = 0;
+	while (flag[i])
+	{
+		if (flag[i] == c)
+			return (flag[i]);
+		i++;
+	}
+	return (0);
 }

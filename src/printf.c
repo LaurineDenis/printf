@@ -6,7 +6,7 @@
 /*   By: laurinedenis <laurinedenis@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/16 11:51:27 by ldenis            #+#    #+#             */
-/*   Updated: 2021/01/14 12:08:13 by laurinedeni      ###   ########.fr       */
+/*   Updated: 2021/01/14 15:13:59 by laurinedeni      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ int		ft_printf(const char *str, ...)
 	len = ft_strlen(ret);
 	len = aff_zero(lst, ret, len);
 	va_end(ap);
-	lst_free(lst);
+	lst_free(&lst);
 	free(ret);
 	return (len);
 }

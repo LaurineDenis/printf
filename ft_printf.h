@@ -63,6 +63,6 @@ int			aff_zero(print_list *lst, char *ret, size_t len);
 int			verif_fill(print_list *lst, int i);
 int			aff_printf(print_list *lst, int len, int aff, char *ret);
 char		*parsing(int i, const char *str, print_list **lst, va_list ap);
-void		lst_free(print_list *lst);
+void		lst_free(print_list **lst);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: laurinedenis <laurinedenis@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/18 13:59:46 by ldenis            #+#    #+#             */
-/*   Updated: 2021/01/14 12:18:08 by laurinedeni      ###   ########.fr       */
+/*   Updated: 2021/01/14 14:33:17 by laurinedeni      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,9 +32,9 @@ int			add_flag(print_list *lst, const char *str, int start, va_list ap)
 	else
 	{
 		if (lst->flag_etoile == 0 && lst->flag_point == 0)
-			lst->size = ft_atoi(ft_substr(str, start, i));
+			lst->size = ft_fatoi(ft_substr(str, start, i));
 		else
-			lst->size_point = ft_atoi(ft_substr(str, start, i));
+			lst->size_point = ft_fatoi(ft_substr(str, start, i));
 		zero(lst, str);
 		return (start + j);
 	}

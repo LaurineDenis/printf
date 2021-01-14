@@ -6,7 +6,7 @@
 /*   By: laurinedenis <laurinedenis@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/13 12:18:46 by laurinedeni       #+#    #+#             */
-/*   Updated: 2021/01/14 11:38:02 by laurinedeni      ###   ########.fr       */
+/*   Updated: 2021/01/14 12:55:00 by laurinedeni      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,8 @@ int		ft_main(void)
 	s = "str";
 	i = -21;
 	u = 25;
-	printf("1 printf = \t|%s|\n", s);
-	ft_printf("1 ft_printf = \t|%s|\n", s);
+	printf("1 printf = \t|%0d|\n", i);
+	ft_printf("1 ft_printf = \t|%0d|\n", i);
 }
 
 int		main(void)

@@ -6,7 +6,7 @@
 /*   By: laurinedenis <laurinedenis@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/28 17:18:32 by ldenis            #+#    #+#             */
-/*   Updated: 2021/01/14 11:58:47 by laurinedeni      ###   ########.fr       */
+/*   Updated: 2021/01/14 13:00:29 by laurinedeni      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,7 @@ int					ft_isalpha(int c);
 int					ft_tolower(int c);
 char				*ft_strchr(const char *s, int c);
 int					ft_atoi(const char *str);
+int					ft_fatoi(const char *str);
 void				*ft_calloc(size_t count, size_t size);
 char				*ft_strdup(const char *s1);
 size_t				ft_strlcpy(char *dst, const char *src, size_t dstsize);

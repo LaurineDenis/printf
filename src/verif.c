@@ -6,7 +6,7 @@
 /*   By: laurinedenis <laurinedenis@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/12 17:25:15 by laurinedeni       #+#    #+#             */
-/*   Updated: 2021/01/14 12:19:21 by laurinedeni      ###   ########.fr       */
+/*   Updated: 2021/01/15 13:45:27 by laurinedeni      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,24 +25,14 @@ int		verif_fill(print_list *lst, int i)
 	return (i);
 }
 
-void	backslash(print_list *lst, char *str)
+void		back200(print_list *lst, char *ret)
 {
-	int			i;
+	int		i;
 
 	i = 0;
-	while (str[i])
-	{
-		if (str[i] == '%')
-		{
-			while (is_c(str[i]) != 0 || is_f(str[i]) != 0)
-			{
-				if (str[i] == 'c')
-					lst->index_b = i - 1;
-				i++;
-			}
-		}
+	while (ret[i] != '\200')
 		i++;
-	}
+	lst->index_b = i;
 }
 
 void		verif(print_list *lst)

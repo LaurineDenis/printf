@@ -6,11 +6,12 @@
 /*   By: laurinedenis <laurinedenis@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/25 18:17:19 by ldenis            #+#    #+#             */
-/*   Updated: 2021/01/05 12:52:35 by laurinedeni      ###   ########.fr       */
+/*   Updated: 2021/01/15 14:06:39 by laurinedeni      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdio.h>
 
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {

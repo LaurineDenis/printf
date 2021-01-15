@@ -6,7 +6,7 @@
 /*   By: laurinedenis <laurinedenis@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/16 12:16:22 by ldenis            #+#    #+#             */
-/*   Updated: 2021/01/14 14:36:41 by laurinedeni      ###   ########.fr       */
+/*   Updated: 2021/01/15 14:20:14 by laurinedeni      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,13 @@ void	print_c(va_list ap, print_list *lst, char *str)
 	char	s[2];
 
 	c = (char)va_arg(ap, int);
+	(void)str;
 	s[0] = c;
 	s[1] = '\0';
 	if (!c)
 	{
 		lst->backslash = 1;
-		backslash(lst, str);
+		s[0] = '\200';
 	}
 	if (!(lst->print = ft_strfjoin(lst->print, s, 1)))
 		return ;
@@ -65,6 +66,10 @@ void	print_d_i(va_list ap, print_list *lst, char *str)
 	i = va_arg(ap, int);
 	(void)str;
 	ret = ft_itoa(i);
+	if (lst->flag_point == 1 && lst->size > 0)
+		lst->flag_0 = 1;
+	if (lst->flag_etoile == 1 && lst->size_point == 0)
+		lst->flag_0 = 1;
 	if (i == 0 && lst->flag_point == 1)
 	{
 		if (lst->size == 0 && lst->size_point == 0)

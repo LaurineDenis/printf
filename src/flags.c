@@ -6,7 +6,7 @@
 /*   By: laurinedenis <laurinedenis@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/18 13:59:46 by ldenis            #+#    #+#             */
-/*   Updated: 2021/01/14 14:33:17 by laurinedeni      ###   ########.fr       */
+/*   Updated: 2021/01/15 14:28:42 by laurinedeni      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,8 +36,10 @@ int			add_flag(print_list *lst, const char *str, int start, va_list ap)
 		else
 			lst->size_point = ft_fatoi(ft_substr(str, start, i));
 		zero(lst, str);
+			// dprintf(1, "11111flag_0 = %d\n", lst->flag_0);
 		return (start + j);
 	}
+		// dprintf(1, "22222flag_0 = %d\n", lst->flag_0);
 	return (start + 1);
 }
 
@@ -54,6 +56,9 @@ void		point(print_list *lst, const char *str)
 	while (str[i] != '%' && str[i])
 		i++;
 	if (str[i + 1] == '.')
+		lst->flag_0 = 1;
+	i++;
+	if (str[i] == '-' && str[i + 1] == '.')
 		lst->flag_0 = 1;
 }
 

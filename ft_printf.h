@@ -44,7 +44,7 @@ void		print_p(va_list ap, print_list *lst, char *str);
 void		print_per(va_list ap, print_list *lst, char *str);
 char		*parse(char	*ret, const char *str, print_list **lst, va_list ap);
 print_list	*init_struct(void);
-void		add_back_lst(print_list **first, print_list *new);
+print_list	*add_back_lst(print_list **first, print_list *last);
 void		init_tab(void (*grid[121])(va_list, print_list *, char *));
 char		*ft_strfjoin(char *s1, char *s2, int is_free);
 int			add_flag(print_list *lst, const char *str, int start, va_list ap);

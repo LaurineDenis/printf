@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   printf.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: laurinedenis <laurinedenis@student.42.f    +#+  +:+       +#+        */
+/*   By: ldenis <ldenis@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/16 11:51:27 by ldenis            #+#    #+#             */
-/*   Updated: 2021/01/14 15:13:59 by laurinedeni      ###   ########.fr       */
+/*   Updated: 2021/01/25 12:06:42 by ldenis           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,19 +28,19 @@ int		ft_printf(const char *str, ...)
 {
 	va_list			ap;
 	print_list		*lst;
+	print_list		*begin;
 	char			*ret;
 	size_t			len;
-	static void		(*grid[121])(va_list, print_list *, char *) = {0};
 
-	init_tab(grid);
 	lst = init_struct();
+	begin = lst;
 	ret = ft_calloc(1, 1);
 	va_start(ap, str);
 	ret = parse(ret, str, &lst, ap);
 	len = ft_strlen(ret);
 	len = aff_zero(lst, ret, len);
 	va_end(ap);
-	lst_free(&lst);
+	lst_free(&begin);
 	free(ret);
 	return (len);
 }

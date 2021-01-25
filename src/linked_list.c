@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   linked_list.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: laurinedenis <laurinedenis@student.42.f    +#+  +:+       +#+        */
+/*   By: ldenis <ldenis@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/13 10:50:43 by laurinedeni       #+#    #+#             */
-/*   Updated: 2021/01/15 11:40:44 by laurinedeni      ###   ########.fr       */
+/*   Updated: 2021/01/25 10:55:51 by ldenis           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,14 +33,18 @@ print_list	*init_struct(void)
 	return (new);
 }
 
-void		add_back_lst(print_list **first, print_list *new)
+print_list	*add_back_lst(print_list **first, print_list *last)
 {
+	print_list	*tmp;
+
+	tmp = (*first);
 	if ((*first) == NULL)
-		(*first) = new;
+		tmp = last;
 	else
 	{
-		while ((*first)->next != NULL)
-			(*first) = (*first)->next;
-		(*first)->next = new;
+		while (tmp->next != NULL)
+			tmp = tmp->next;
+		tmp->next = last;
 	}
+	return (tmp->next);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: laurinedenis <laurinedenis@student.42.f    +#+  +:+       +#+        */
+/*   By: ldenis <ldenis@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/13 12:15:02 by laurinedeni       #+#    #+#             */
-/*   Updated: 2021/01/15 14:27:18 by laurinedeni      ###   ########.fr       */
+/*   Updated: 2021/01/25 15:41:16 by ldenis           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,16 +15,18 @@
 char		*parse(char *ret, const char *str, print_list **lst, va_list ap)
 {
 	print_list	*beg;
+	print_list	*next;
 	size_t		i;
 
 	i = 0;
+	next = NULL;
 	beg = (*lst);
 	while (str[i])
 	{
 		while (str[i] == '%')
 		{
 			i++;
-			add_back_lst(lst, init_struct());
+			(*lst) = add_back_lst(lst, init_struct());
 			while (is_c(str[i]) != 0 || is_f(str[i]) != 0)
 			{
 				if (is_c(str[i]) != 0)
@@ -46,7 +48,7 @@ char		*parsing(int i, const char *str, print_list **lst, va_list ap)
 	void		(*tab_fonction[121])(va_list, print_list *, char *);
 	char		*ret;
 
-	ret = ft_calloc(1, 1);
+	ret = NULL;
 	init_tab(tab_fonction);
 	(*lst)->convert = str[i];
 	(tab_fonction[(int)str[i]])(ap, *lst, (char *)str);
@@ -55,6 +57,7 @@ char		*parsing(int i, const char *str, print_list **lst, va_list ap)
 	// dprintf(1, "-----------NEW FLAG-----------\n");
 	// dprintf(1, "convert = %c\n", (*lst)->convert);
 	// dprintf(1, "adresse = %p\n", (*lst));
+	// dprintf(1, "adresse next = %p\n", (*lst)->next);
 	// dprintf(1, "flag_0 = %d\n", (*lst)->flag_0);
 	// dprintf(1, "flag_point = %d\n", (*lst)->flag_point);
 	// dprintf(1, "flag_etoile = %d\n", (*lst)->flag_etoile);

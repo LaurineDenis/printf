@@ -6,7 +6,7 @@
 /*   By: ldenis <ldenis@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/18 13:59:46 by ldenis            #+#    #+#             */
-/*   Updated: 2021/01/25 15:39:35 by ldenis           ###   ########lyon.fr   */
+/*   Updated: 2021/01/26 16:58:37 by ldenis           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,10 +36,8 @@ int			add_flag(print_list *lst, const char *str, int start, va_list ap)
 		else
 			lst->size_point = ft_fatoi(ft_substr(str, start, i));
 		zero(lst, str);
-			// dprintf(1, "11111flag_0 = %d\n", lst->flag_0);
 		return (start + j);
 	}
-		// dprintf(1, "22222flag_0 = %d\n", lst->flag_0);
 	return (start + 1);
 }
 

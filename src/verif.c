@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   verif.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: laurinedenis <laurinedenis@student.42.f    +#+  +:+       +#+        */
+/*   By: ldenis <ldenis@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/12 17:25:15 by laurinedeni       #+#    #+#             */
-/*   Updated: 2021/01/15 13:45:27 by laurinedeni      ###   ########.fr       */
+/*   Updated: 2021/01/26 16:06:36 by ldenis           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ int		verif_fill(print_list *lst, int i)
 		lst->flag_0 = 0;
 	if (lst->convert == '%')
 		lst->size_point = 1;
+	if (lst->size > lst->size_point && lst->flag_0 == 1)
+		lst->size = lst->size_point;
 	if (lst->size < lst->size_point)
 		lst->size = lst->size_point;
 	if (i == 0 && lst->backslash == 1)

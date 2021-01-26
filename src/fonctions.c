@@ -6,7 +6,7 @@
 /*   By: ldenis <ldenis@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/16 12:16:22 by ldenis            #+#    #+#             */
-/*   Updated: 2021/01/25 15:38:12 by ldenis           ###   ########lyon.fr   */
+/*   Updated: 2021/01/26 15:42:18 by ldenis           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,8 @@ void	print_s(va_list ap, print_list *lst, char *str)
 	}
 	if (!(lst->print = ft_strfjoin(lst->print, s, 1)))
 		return ;
+	if (lst->flag_point == 1 && lst->size > 0)
+		lst->flag_0 = 0;
 	if (lst->flag_point == 1)
 		free(s);
 }
@@ -66,8 +68,11 @@ void	print_d_i(va_list ap, print_list *lst, char *str)
 	i = va_arg(ap, int);
 	(void)str;
 	ret = ft_itoa(i);
-	if (lst->flag_point == 1 && lst->size > 0)
+	if (lst->flag_point == 1 && lst->size_point > 0)
+	{
 		lst->flag_0 = 1;
+		lst->flag_tiret = 0;
+	}
 	if (lst->flag_etoile == 1 && lst->size_point == 0)
 		lst->flag_0 = 1;
 	if (i == 0 && lst->flag_point == 1)

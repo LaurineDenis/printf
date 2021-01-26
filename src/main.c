@@ -6,7 +6,7 @@
 /*   By: ldenis <ldenis@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/13 12:18:46 by laurinedeni       #+#    #+#             */
-/*   Updated: 2021/01/25 16:29:04 by ldenis           ###   ########lyon.fr   */
+/*   Updated: 2021/01/26 16:57:22 by ldenis           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,10 +27,10 @@ int		main(void)
 	u = 25;
 	ret1 = 0;
 	ret2 = 0;
-	ret1 = printf("true = %c", 0);
-	printf("\n\n\n");
-	ret2 = ft_printf("%c", 0);
-	// dprintf(1, "\nret 1 = %d\nret 2 = %d\n", ret1, ret2);
+	// printf("\n");
+	ret1 = printf("%-3.2d", 0);
+	// ret2 = ft_printf("%-3.2d", 0);
+	// dprintf(1, "\n1\tret 1 = %d\nret 2 = %d\n", ret1, ret2);
 }
 
 // int		main(void)

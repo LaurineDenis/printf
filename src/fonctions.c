@@ -6,7 +6,7 @@
 /*   By: ldenis <ldenis@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/16 12:16:22 by ldenis            #+#    #+#             */
-/*   Updated: 2021/01/26 15:42:18 by ldenis           ###   ########lyon.fr   */
+/*   Updated: 2021/01/27 10:53:54 by ldenis           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,12 +69,7 @@ void	print_d_i(va_list ap, print_list *lst, char *str)
 	(void)str;
 	ret = ft_itoa(i);
 	if (lst->flag_point == 1 && lst->size_point > 0)
-	{
-		lst->flag_0 = 1;
 		lst->flag_tiret = 0;
-	}
-	if (lst->flag_etoile == 1 && lst->size_point == 0)
-		lst->flag_0 = 1;
 	if (i == 0 && lst->flag_point == 1)
 	{
 		if (lst->size == 0 && lst->size_point == 0)

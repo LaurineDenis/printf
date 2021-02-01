@@ -6,7 +6,7 @@
 /*   By: ldenis <ldenis@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/18 13:59:46 by ldenis            #+#    #+#             */
-/*   Updated: 2021/01/26 16:58:37 by ldenis           ###   ########lyon.fr   */
+/*   Updated: 2021/02/01 13:40:39 by ldenis           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,10 +47,10 @@ void		point(print_list *lst, const char *str)
 
 	i = 0;
 	lst->flag_point = 1;
-	if (lst->flag_point == 1 && lst->size > 0)
-		lst->flag_0 = 1;
-	if (lst->flag_etoile == 1 && lst->size_point == 0)
-		lst->flag_0 = 1;
+	// if (lst->flag_point == 1 && lst->size > 0)
+	// 	lst->flag_0 = 1;
+	// if (lst->flag_etoile == 1 && lst->size_point == 0)
+	// 	lst->flag_0 = 1;
 	while (str[i] != '%' && str[i])
 		i++;
 	if (str[i + 1] == '.')

@@ -6,13 +6,13 @@
 /*   By: ldenis <ldenis@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/13 10:48:33 by laurinedeni       #+#    #+#             */
-/*   Updated: 2021/01/26 14:51:43 by ldenis           ###   ########lyon.fr   */
+/*   Updated: 2021/02/03 14:49:39 by ldenis           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_printf.h"
 
-int		aff_printf(print_list *lst, int len, int aff, char *ret)
+int		aff_printf(t_print *lst, int len, int aff, char *ret)
 {
 	char	*str;
 
@@ -30,7 +30,7 @@ int		aff_printf(print_list *lst, int len, int aff, char *ret)
 	return (len);
 }
 
-int		aff_zero(print_list *lst, char *ret, size_t len)
+int		aff_zero(t_print *lst, char *ret, size_t len)
 {
 	int		aff;
 	int		i;

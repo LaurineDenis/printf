@@ -6,13 +6,13 @@
 /*   By: ldenis <ldenis@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/18 13:59:46 by ldenis            #+#    #+#             */
-/*   Updated: 2021/02/01 13:40:39 by ldenis           ###   ########lyon.fr   */
+/*   Updated: 2021/02/03 14:51:43 by ldenis           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_printf.h"
 
-int			add_flag(print_list *lst, const char *str, int start, va_list ap)
+int			add_flag(t_print *lst, char *str, int start, va_list ap)
 {
 	int		i;
 	int		j;
@@ -41,16 +41,16 @@ int			add_flag(print_list *lst, const char *str, int start, va_list ap)
 	return (start + 1);
 }
 
-void		point(print_list *lst, const char *str)
+void		point(t_print *lst, const char *str)
 {
 	int		i;
 
 	i = 0;
 	lst->flag_point = 1;
-	// if (lst->flag_point == 1 && lst->size > 0)
-	// 	lst->flag_0 = 1;
-	// if (lst->flag_etoile == 1 && lst->size_point == 0)
-	// 	lst->flag_0 = 1;
+	if (lst->flag_point == 1 && lst->size > 0)
+		lst->flag_0 = 1;
+	if (lst->flag_etoile == 1 && lst->size_point == 0)
+		lst->flag_0 = 1;
 	while (str[i] != '%' && str[i])
 		i++;
 	if (str[i + 1] == '.')
@@ -60,7 +60,7 @@ void		point(print_list *lst, const char *str)
 		lst->flag_0 = 1;
 }
 
-void		zero(print_list *lst, const char *str)
+void		zero(t_print *lst, const char *str)
 {
 	size_t		i;
 
@@ -71,31 +71,33 @@ void		zero(print_list *lst, const char *str)
 		lst->flag_0 = 1;
 }
 
-void		fill_print(print_list *lst)
+void		fill_print(t_print *lst)
 {
 	int		i;
 
 	i = ft_strlen(lst->print);
 	i = verif_fill(lst, i);
-	if (lst->size != 0)
+	while (i++ < lst->size_point)
 	{
-		while (i++ < lst->size)
-		{
-			if (lst->flag_tiret == 1)
-				lst->print = ft_strfjoin(lst->print, " \0", 1);
-			else if (lst->flag_0 == 1)
-				lst->print = ft_strfjoin("0\0", lst->print, 2);
-			else
-				lst->print = ft_strfjoin(" \0", lst->print, 2);
-			lst->index_b++;
-		}
-		lst->index_b -= 2;
+		if (lst->flag_0 == 1)
+			lst->print = ft_strfjoin("0\0", lst->print, 2);
+		else
+			lst->print = ft_strfjoin(" \0", lst->print, 2);
+		lst->index_b++;
 	}
-	if (lst->verif == 1)
-		verif(lst);
+	i = verif(lst, i);
+	while (i++ < lst->size)
+	{
+		if (lst->flag_tiret == 1)
+			lst->print = ft_strfjoin(lst->print, " \0", 1);
+		else
+			lst->print = ft_strfjoin(" \0", lst->print, 2);
+		lst->index_b++;
+	}
+	lst->index_b -= 2;
 }
 
-void		wildcard(print_list *lst, va_list ap)
+void		wildcard(t_print *lst, va_list ap)
 {
 	lst->flag_etoile = 1;
 	if (lst->flag_point == 1)

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: laurinedenis <laurinedenis@student.42.f    +#+  +:+       +#+        */
+/*   By: ldenis <ldenis@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/17 12:51:30 by ldenis            #+#    #+#             */
-/*   Updated: 2021/01/15 13:21:36 by laurinedeni      ###   ########.fr       */
+/*   Updated: 2021/02/03 14:34:20 by ldenis           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ char		*ft_strfjoin(char *s1, char *s2, int is_free)
 		free(s1);
 	else if (is_free == 2)
 		free(s2);
-	else if (is_free != 0)
+	else if (is_free == 3)
 	{
 		free(s1);
 		free(s2);
@@ -52,7 +52,7 @@ int			is_num(char c)
 	return (0);
 }
 
-int		is_c(char c)
+int			is_c(char c)
 {
 	char	*convert;
 	int		i;
@@ -68,7 +68,7 @@ int		is_c(char c)
 	return (0);
 }
 
-int		is_f(char c)
+int			is_f(char c)
 {
 	char	*flag;
 	int		i;

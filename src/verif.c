@@ -6,20 +6,16 @@
 /*   By: ldenis <ldenis@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/12 17:25:15 by laurinedeni       #+#    #+#             */
-/*   Updated: 2021/01/27 10:39:22 by ldenis           ###   ########lyon.fr   */
+/*   Updated: 2021/02/03 14:49:39 by ldenis           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_printf.h"
 
-int		verif_fill(print_list *lst, int i)
+int		verif_fill(t_print *lst, int i)
 {
-	if (lst->size_point <= 1)
-		lst->flag_0 = 0;
 	if (lst->convert == '%')
 		lst->size_point = 1;
-	if (lst->size > lst->size_point && lst->flag_0 == 1)
-		lst->size = lst->size_point;
 	if (lst->size < lst->size_point)
 		lst->size = lst->size_point;
 	if (i == 0 && lst->backslash == 1)
@@ -27,7 +23,7 @@ int		verif_fill(print_list *lst, int i)
 	return (i);
 }
 
-void		back200(print_list *lst, char *ret)
+void	back200(t_print *lst, char *ret)
 {
 	int		i;
 
@@ -37,11 +33,37 @@ void		back200(print_list *lst, char *ret)
 	lst->index_b = i;
 }
 
-void		verif(print_list *lst)
+int		verif(t_print *lst, int i)
 {
-	if (lst->flag_point == 0 && lst->convert == 'i')
-		lst->print = ft_substr(lst->print, 1, ft_strlen(lst->print));
-	if (lst->convert == 'd' && lst->flag_point == 0)
-		lst->print = ft_substr(lst->print, 1, ft_strlen(lst->print));
-	lst->print = ft_strfjoin("-\0", lst->print, 2);
+	int		j;
+
+	j = 0;
+	i = test(lst, i);
+	if (lst->verif == 1)
+		lst->print = ft_strfjoin("-\0", lst->print, 2);
+	else
+		i--;
+	return (i);
+}
+
+int		test(t_print *lst, int i)
+{
+	if (lst->flag_0 == 1 && lst->flag_etoile == 1 && lst->size_point <= 1)
+	{
+		if (lst->flag_tiret == 0 && lst->flag_0 == 1)
+		{
+			if (lst->convert == 'u' || lst->convert == 'x')
+				lst->size_point = lst->size + 1;
+			else if (lst->convert == 'X')
+				lst->size_point = lst->size + 1;
+			else if (lst->verif == 1)
+				lst->size_point = lst->size;
+			else
+				return (i);
+			while (i++ < lst->size_point)
+				lst->print = ft_strfjoin("0\0", lst->print, 2);
+			i--;
+		}
+	}
+	return (i);
 }

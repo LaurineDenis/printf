@@ -1,28 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   free_lst.c                                         :+:      :+:    :+:   */
+/*   ft_strcat.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ldenis <ldenis@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/14 11:39:15 by laurinedeni       #+#    #+#             */
-/*   Updated: 2021/02/03 14:49:39 by ldenis           ###   ########lyon.fr   */
+/*   Created: 2021/02/02 16:27:49 by ldenis            #+#    #+#             */
+/*   Updated: 2021/02/02 16:29:06 by ldenis           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../ft_printf.h"
+#include "libft.h"
 
-void	lst_free(t_print **lst)
+char	*ft_strcat(char *dest, char *src)
 {
-	t_print	*sav;
+	int i;
+	int j;
+	int k;
 
-	sav = NULL;
-	while (*lst)
+	i = 0;
+	j = 0;
+	while (dest[i])
+		i++;
+	while (src[i])
+		j++;
+	k = i + j + 1;
+	j = 0;
+	while (i < k)
 	{
-		sav = (*lst)->next;
-		free((*lst)->print);
-		free(*(lst));
-		(*lst) = sav;
+		dest[i] = src[j];
+		j++;
+		i++;
 	}
-	(*lst) = NULL;
+	if (i == k)
+		dest[i] = '\0';
+	return (dest);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: laurinedenis <laurinedenis@student.42.f    +#+  +:+       +#+        */
+/*   By: ldenis <ldenis@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/28 17:18:32 by ldenis            #+#    #+#             */
-/*   Updated: 2021/01/14 13:00:29 by laurinedeni      ###   ########.fr       */
+/*   Updated: 2021/02/03 14:49:49 by ldenis           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,5 +77,6 @@ void				ft_putnbr_unsi(unsigned int n, int fd);
 char				*ft_itoa_hexa_unsi(unsigned int n, char *base);
 char				*ft_itoa_unsi(unsigned int n);
 int					ft_strichr(const char *s, int c);
+char				*ft_strcat(char *dest, char *src);
 
 #endif

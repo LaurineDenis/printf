@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: laurinedenis <laurinedenis@student.42.f    +#+  +:+       +#+         #
+#    By: ldenis <ldenis@student.42lyon.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/11/24 11:44:21 by ldenis            #+#    #+#              #
-#    Updated: 2021/01/14 13:00:44 by laurinedeni      ###   ########.fr        #
+#    Updated: 2021/02/02 16:29:40 by ldenis           ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,7 @@ SRCS		= ft_putnbr_fd.c ft_putendl_fd.c ft_putstr_fd.c ft_putchar_fd.c \
  ft_itoa_hexa_unsi.c ft_itoa_unsi.c ft_strichr.c ft_lstmap.c ft_lstiter.c \
  ft_lstclear.c ft_lstdelone.c ft_lstadd_back.c ft_lstlast.c ft_lstsize.c \
  ft_lstadd_front.c ft_lstnew.c ft_strncpy.c ft_counterword.c ft_iszero.c \
- ft_fatoi.c
+ ft_fatoi.c ft_strcat.c
 
 OBJS		= ${SRCS:.c=.o}
 

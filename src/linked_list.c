@@ -6,15 +6,15 @@
 /*   By: ldenis <ldenis@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/13 10:50:43 by laurinedeni       #+#    #+#             */
-/*   Updated: 2021/01/25 10:55:51 by ldenis           ###   ########lyon.fr   */
+/*   Updated: 2021/02/03 14:49:39 by ldenis           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_printf.h"
 
-print_list	*init_struct(void)
+t_print	*init_struct(void)
 {
-	print_list		*new;
+	t_print		*new;
 
 	if (!(new = malloc(sizeof(*new))))
 		return (NULL);
@@ -33,9 +33,9 @@ print_list	*init_struct(void)
 	return (new);
 }
 
-print_list	*add_back_lst(print_list **first, print_list *last)
+t_print	*add_back_lst(t_print **first, t_print *last)
 {
-	print_list	*tmp;
+	t_print	*tmp;
 
 	tmp = (*first);
 	if ((*first) == NULL)

@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   grid_fonction.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: laurinedenis <laurinedenis@student.42.f    +#+  +:+       +#+        */
+/*   By: ldenis <ldenis@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/13 10:56:37 by laurinedeni       #+#    #+#             */
-/*   Updated: 2021/01/14 12:24:14 by laurinedeni      ###   ########.fr       */
+/*   Created: 2021/02/03 14:32:36 by ldenis            #+#    #+#             */
+/*   Updated: 2021/02/03 14:49:39 by ldenis           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_printf.h"
 
-void		init_tab(void (*grid[121])(va_list ap, print_list *lst, char *str))
+void		init_tab(void (*grid[121])(va_list ap, t_print *lst, char *str))
 {
 	grid[37] = &print_per;
 	grid[88] = &print_bigx;

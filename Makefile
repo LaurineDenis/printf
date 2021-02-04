@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: laurinedenis <laurinedenis@student.42.f    +#+  +:+       +#+         #
+#    By: ldenis <ldenis@student.42lyon.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/12/13 14:57:14 by ldenis            #+#    #+#              #
-#    Updated: 2021/01/14 11:45:11 by laurinedeni      ###   ########.fr        #
+#    Updated: 2021/02/04 11:44:48 by ldenis           ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -48,7 +48,7 @@ clean:
 			@${RM} ${OBJS}
 			@make clean -C libft
 
-fclean:		
+fclean:
 			@${RM} ${OBJS}
 			@${RM} ${NAME}
 			@make -C libft fclean

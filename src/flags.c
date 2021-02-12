@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   flags.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ldenis <ldenis@student.42lyon.fr>          +#+  +:+       +#+        */
+/*   By: laurinedenis <laurinedenis@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/18 13:59:46 by ldenis            #+#    #+#             */
-/*   Updated: 2021/02/11 10:21:40 by ldenis           ###   ########lyon.fr   */
+/*   Updated: 2021/02/12 16:37:08 by laurinedeni      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,10 +47,6 @@ void		point(t_print *lst, const char *str)
 
 	i = 0;
 	lst->flag_point = 1;
-	if (lst->flag_point == 1 && lst->size > 0)
-		lst->flag_0 = 1;
-	if (lst->flag_etoile == 1 && lst->size_point == 0)
-		lst->flag_0 = 1;
 	while (str[i] != '%' && str[i])
 		i++;
 	if (str[i + 1] == '.')
@@ -90,6 +86,8 @@ void		fill_print(t_print *lst)
 	{
 		if (lst->flag_tiret == 1)
 			lst->print = ft_strfjoin(lst->print, " \0", 1);
+		else if (lst->flag_0 == 1)
+			lst->print = ft_strfjoin("0\0", lst->print, 2);
 		else
 			lst->print = ft_strfjoin(" \0", lst->print, 2);
 		lst->index_b++;
@@ -104,9 +102,10 @@ void		wildcard(t_print *lst, va_list ap)
 		lst->size_point = va_arg(ap, int);
 	else
 		lst->size = va_arg(ap, int);
-	if (lst->size < 0)
-	{
-		lst->size = lst->size * -1;
+	if (lst->size <= 0)
 		lst->flag_tiret = 1;
-	}
+	if (lst->size_point >= 1)
+		lst->flag_0 = 1;
+	else if (lst->flag_point == 1 && lst->size_point == 0)
+		lst->flag_0 = 0;
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ldenis <ldenis@student.42lyon.fr>          +#+  +:+       +#+        */
+/*   By: laurinedenis <laurinedenis@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/25 19:36:09 by ldenis            #+#    #+#             */
-/*   Updated: 2020/12/04 11:07:03 by ldenis           ###   ########lyon.fr   */
+/*   Updated: 2021/02/12 16:50:12 by laurinedeni      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,5 +87,6 @@ char			**ft_split(char const *s, char c)
 		else
 			i++;
 	}
+	split[j] = "\0";
 	return (split);
 }

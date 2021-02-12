@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fonctions.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ldenis <ldenis@student.42lyon.fr>          +#+  +:+       +#+        */
+/*   By: laurinedenis <laurinedenis@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/16 12:16:22 by ldenis            #+#    #+#             */
-/*   Updated: 2021/02/10 15:00:27 by ldenis           ###   ########lyon.fr   */
+/*   Updated: 2021/02/12 15:52:07 by laurinedeni      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,9 +72,9 @@ void	print_d_i(va_list ap, t_print *lst, char *str)
 		lst->verif = 1;
 		save = ft_substr(lst->print, 1, ft_strlen(lst->print));
 		free(lst->print);
-		if (lst->size_point <= 1)
-			lst->flag_0 = 0;
 		lst->print = save;
+		// if (lst->flag_tiret == 0 && lst->size_point > 0)
+		// 	lst->flag_0 = 0;
 	}
 }
 

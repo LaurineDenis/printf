@@ -3,26 +3,35 @@
 /*                                                        :::      ::::::::   */
 /*   aff.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ldenis <ldenis@student.42lyon.fr>          +#+  +:+       +#+        */
+/*   By: laurinedenis <laurinedenis@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/13 10:48:33 by laurinedeni       #+#    #+#             */
-/*   Updated: 2021/02/03 14:49:39 by ldenis           ###   ########lyon.fr   */
+/*   Updated: 2021/02/12 16:48:35 by laurinedeni      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_printf.h"
 
-int		aff_printf(t_print *lst, int len, int aff, char *ret)
+int		aff_printf(t_print *lst, int len, int aff, char *ret, int i)
 {
-	char	*str;
+	char	**str;
+	int		j;
 
+	j = 0;
+	(void)lst;
 	if (aff == 1)
 	{
-		back200(lst, ret);
-		str = ft_substr(ret, lst->index_b + 1, len);
-		write(1, ret, lst->index_b);
-		write(1, "\0", 1);
-		write(1, str, ft_strlen(str));
+		while (j < i)
+		{
+			// back200(lst, ret);
+			str = ft_split(ret, '\200');
+			// str = ft_substr(ret, lst->index_b + 1, len);
+			write(1, str[j], ft_strlen(*(str + j)));
+			write(1, "\0", 1);
+			// lst = lst->next;
+			j++;
+		}
+		write(1, str[j], ft_strlen(str[j]));
 		free(str);
 		return (len);
 	}
@@ -34,21 +43,24 @@ int		aff_zero(t_print *lst, char *ret, size_t len)
 {
 	int		aff;
 	int		i;
+	int		nb;
+	t_print *first;
 
 	aff = 0;
 	i = 0;
-	while (lst)
+	nb = 0;
+	first = lst;
+	while (lst != NULL)
 	{
 		i++;
 		if (lst->backslash == 1)
 		{
 			aff = 1;
-			if (i > 1)
-				lst->index_b -= 1;
-			break ;
+			nb++;
 		}
 		lst = lst->next;
 	}
-	len = aff_printf(lst, len, aff, ret);
+	lst = first;
+	len = aff_printf(lst, len, aff, ret, nb);
 	return (len);
 }

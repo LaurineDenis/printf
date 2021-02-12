@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ldenis <ldenis@student.42lyon.fr>          +#+  +:+       +#+        */
+/*   By: laurinedenis <laurinedenis@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/03 14:38:21 by ldenis            #+#    #+#             */
-/*   Updated: 2021/02/03 14:51:25 by ldenis           ###   ########lyon.fr   */
+/*   Updated: 2021/02/12 16:09:31 by laurinedeni      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ int					verif(t_print *lst, int i);
 void				backslash(t_print *lst, char *str);
 int					aff_zero(t_print *lst, char *ret, size_t len);
 int					verif_fill(t_print *lst, int i);
-int					aff_printf(t_print *lst, int len, int aff, char *ret);
+int					aff_printf(t_print *lst, int len, int aff, char *ret, int i);
 char				*parsing(int i, const char *str, t_print **lst, va_list ap);
 void				lst_free(t_print **lst);
 void				back200(t_print *lst, char *ret);

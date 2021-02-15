@@ -6,7 +6,7 @@
 #    By: ldenis <ldenis@student.42lyon.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/12/13 14:57:14 by ldenis            #+#    #+#              #
-#    Updated: 2021/02/04 11:44:48 by ldenis           ###   ########lyon.fr    #
+#    Updated: 2021/02/15 16:42:12 by ldenis           ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,7 +34,7 @@ LIB			= libft/libft.a
 
 %.o:		%.c ft_printf.h
 			@echo "\033[0;32m [OK] \033[0m       \033[0;33m Compiling:\033[0m" $<
-			@${CC} ${CFLAGS} -I includes -c $< -o $@
+			@${CC} ${CFLAGS} -I includes -c $< -o $@ -g3
 
 all:		${NAME}
 

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   aff.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: laurinedenis <laurinedenis@student.42.f    +#+  +:+       +#+        */
+/*   By: ldenis <ldenis@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/13 10:48:33 by laurinedeni       #+#    #+#             */
-/*   Updated: 2021/02/12 16:48:35 by laurinedeni      ###   ########.fr       */
+/*   Updated: 2021/02/15 16:45:44 by ldenis           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,26 +14,40 @@
 
 int		aff_printf(t_print *lst, int len, int aff, char *ret, int i)
 {
-	char	**str;
+	char	**split;
+	char	*str;
 	int		j;
 
 	j = 0;
 	(void)lst;
 	if (aff == 1)
 	{
-		while (j < i)
+		if (i == 1)
 		{
-			// back200(lst, ret);
-			str = ft_split(ret, '\200');
-			// str = ft_substr(ret, lst->index_b + 1, len);
-			write(1, str[j], ft_strlen(*(str + j)));
+			back200(lst, ret);
+			str = ft_substr(ret, lst->index_b + 1, len);
+			write(1, ret, lst->index_b);
 			write(1, "\0", 1);
-			// lst = lst->next;
-			j++;
+			write(1, str, ft_strlen(str));
+			free(str);
+			return (len);
 		}
-		write(1, str[j], ft_strlen(str[j]));
-		free(str);
-		return (len);
+		else
+		{
+			split = ft_split(ret, '\200');
+			while (j < i)
+			{
+				write(1, split[j], ft_strlen(split[j]));
+				write(1, "\0", 1);
+				j++;
+			}
+			write(1, split[j], ft_strlen(split[j]));
+			j = -1;
+			while (++j <= i)
+				dprintf(1, "split[%d] = %s\n", j, split[j]);
+			free(split);
+			return (len);
+		}
 	}
 	write(1, ret, len);
 	return (len);

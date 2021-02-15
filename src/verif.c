@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   verif.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: laurinedenis <laurinedenis@student.42.f    +#+  +:+       +#+        */
+/*   By: ldenis <ldenis@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/12 17:25:15 by laurinedeni       #+#    #+#             */
-/*   Updated: 2021/02/12 15:57:19 by laurinedeni      ###   ########.fr       */
+/*   Updated: 2021/02/15 16:01:01 by ldenis           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,10 @@ int		verif_fill(t_print *lst, int i)
 		lst->size = lst->size_point;
 		lst->flag_0 = 1;
 	}
+	if (lst->flag_tiret == 1 && lst->size_point > 0)
+		lst->flag_0 = 1;
+	if (lst->flag_etoile == 0 && lst->flag_tiret == 0 && lst->size_point > 0 && lst->flag_point == 1)
+		lst->flag_0 = 1;
 	if (i == 0 && lst->backslash == 1)
 		i++;
 	return (i);
@@ -49,6 +53,8 @@ int		verif(t_print *lst, int i)
 	j = 0;
 	i = test(lst, i);
 	if (lst->size_point > 0 && lst->size > 0)
+		lst->flag_0 = 0;
+	if (lst->flag_point == 1 && lst->size_point == 0)
 		lst->flag_0 = 0;
 	if (lst->verif == 1)
 		lst->print = ft_strfjoin("-\0", lst->print, 2);

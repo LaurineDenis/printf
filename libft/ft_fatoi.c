@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_fatoi.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: laurinedenis <laurinedenis@student.42.f    +#+  +:+       +#+        */
+/*   By: ldenis <ldenis@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/14 12:59:27 by laurinedeni       #+#    #+#             */
-/*   Updated: 2021/01/14 14:31:33 by laurinedeni      ###   ########.fr       */
+/*   Updated: 2021/02/16 10:23:17 by ldenis           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 
 int		ft_fatoi(const char *str)
 {
-	int res;
-	int sign;
+	int		res;
+	int		sign;
 	void	*save;
 
 	res = 0;
@@ -35,6 +35,6 @@ int		ft_fatoi(const char *str)
 		res = res * 10 + *str - '0';
 		str++;
 	}
-    free(save);
+	free(save);
 	return (res * sign);
 }

@@ -6,7 +6,7 @@
 /*   By: ldenis <ldenis@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/25 19:36:09 by ldenis            #+#    #+#             */
-/*   Updated: 2021/02/15 17:00:10 by ldenis           ###   ########lyon.fr   */
+/*   Updated: 2021/02/16 10:23:45 by ldenis           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,6 +88,5 @@ char			**ft_split(char const *s, char c)
 		else
 			i++;
 	}
-	split[j] = "\0";
 	return (split);
 }

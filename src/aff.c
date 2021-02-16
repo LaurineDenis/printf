@@ -6,25 +6,22 @@
 /*   By: ldenis <ldenis@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/13 10:48:33 by laurinedeni       #+#    #+#             */
-/*   Updated: 2021/02/16 10:17:12 by ldenis           ###   ########lyon.fr   */
+/*   Updated: 2021/02/16 10:21:48 by ldenis           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_printf.h"
 
-int		aff_printf(t_print *lst, int len, int aff, char *ret, int i)
+int		aff_printf(int len, int aff, char *ret, int i)
 {
-	char	*str;
 	int		j;
 	int		index;
 
 	j = 0;
 	index = 0;
-	(void)lst;
-	(void)str;
 	if (aff == 1)
 	{
-		while (j < i && lst)
+		while (j < i)
 		{
 			while (ret[index] != '\200' && index < len)
 				index++;
@@ -58,6 +55,6 @@ int		aff_zero(t_print *lst, char *ret, size_t len)
 		lst = lst->next;
 	}
 	lst = first;
-	len = aff_printf(lst, len, aff, ret, nb);
+	len = aff_printf(len, aff, ret, nb);
 	return (len);
 }

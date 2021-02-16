@@ -1,15 +1,15 @@
 /* ************************************************************************** */
-/*                                                          LE - /            */
-/*                                                              /             */
-/*   test_printf.c                                    .::    .:/ .      .::   */
-/*                                                 +:+:+   +:    +:  +:+:+    */
-/*   By: mhouppin <mhouppin@student.le-101.>        +:+   +:    +:    +:+     */
-/*                                                 #+#   #+    #+    #+#      */
-/*   Created: 2020/01/02 15:58:09 by mhouppin     #+#   ##    ##    #+#       */
-/*   Updated: 2021/02/08 11:34:05 by mhouppin         ###   ########lyon.fr   */
-/*                                                         /                  */
-/*                                                        /                   */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   test_printf.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ldenis <ldenis@student.42lyon.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2020/01/02 15:58:09 by mhouppin          #+#    #+#             */
+/*   Updated: 2021/02/16 14:41:38 by ldenis           ###   ########lyon.fr   */
+/*                                                                            */
 /* ************************************************************************** */
+
 
 #include <fcntl.h>
 #include <stdio.h>
@@ -277,9 +277,9 @@ void	__gen_test_int(void)
 	int		your_printf_return;
 	char	call_buf[256];
 
-	if (ENABLE_WIDTH && (flag_key & 96))
+	if (ENABLE_WIDTH && (flag_key & 96) == 96)
 	{
-		if (ENABLE_PRECISION && (flag_key & 384))
+		if (ENABLE_PRECISION && (flag_key & 384) == 384)
 		{
 			real_printf_return = asprintf(&real_printf, fmtbuf, (int)width, (int)precision, param);
 			__pipe_stdout();
@@ -298,7 +298,7 @@ void	__gen_test_int(void)
 	}
 	else
 	{
-		if (ENABLE_PRECISION && (flag_key & 384))
+		if (ENABLE_PRECISION && (flag_key & 384) == 384)
 		{
 			real_printf_return = asprintf(&real_printf, fmtbuf, (int)precision, param);
 			__pipe_stdout();

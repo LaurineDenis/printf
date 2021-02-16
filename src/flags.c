@@ -6,7 +6,7 @@
 /*   By: ldenis <ldenis@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/18 13:59:46 by ldenis            #+#    #+#             */
-/*   Updated: 2021/02/15 15:16:56 by ldenis           ###   ########lyon.fr   */
+/*   Updated: 2021/02/16 14:25:24 by ldenis           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,6 +92,8 @@ void		fill_print(t_print *lst)
 			lst->print = ft_strfjoin(" \0", lst->print, 2);
 		lst->index_b++;
 	}
+	// if (lst->verif == 1 && lst->flag_0 == 1)
+	// 	lst->print = ft_strfjoin("-\0", lst->print, 2);
 	lst->index_b -= 2;
 }
 

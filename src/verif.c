@@ -6,7 +6,7 @@
 /*   By: ldenis <ldenis@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/12 17:25:15 by laurinedeni       #+#    #+#             */
-/*   Updated: 2021/02/15 16:01:01 by ldenis           ###   ########lyon.fr   */
+/*   Updated: 2021/02/16 10:06:45 by ldenis           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ int		verif_fill(t_print *lst, int i)
 	return (i);
 }
 
-void	back200(t_print *lst, char *ret)
+int		back200(t_print *lst, char *ret)
 {
 	int		i;
 
@@ -44,6 +44,8 @@ void	back200(t_print *lst, char *ret)
 	while (ret[i] != '\200')
 		i++;
 	lst->index_b = i;
+	dprintf(1, "index = %d\n", i);
+	return (i);
 }
 
 int		verif(t_print *lst, int i)

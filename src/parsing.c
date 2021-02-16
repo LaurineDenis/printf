@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: laurinedenis <laurinedenis@student.42.f    +#+  +:+       +#+        */
+/*   By: ldenis <ldenis@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/13 12:15:02 by laurinedeni       #+#    #+#             */
-/*   Updated: 2021/02/12 15:15:57 by laurinedeni      ###   ########.fr       */
+/*   Updated: 2021/02/16 10:17:45 by ldenis           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,17 +52,5 @@ char		*parsing(int i, const char *str, t_print **lst, va_list ap)
 	(tab_fonction[(int)str[i]])(ap, *lst, (char *)str);
 	fill_print(*lst);
 	ret = ft_substr((*lst)->print, 0, ft_strlen((*lst)->print));
-	// dprintf(1, "-----------NEW FLAG-----------\n");
-	// dprintf(1, "convert = %c\n", (*lst)->convert);
-	// dprintf(1, "adresse = %p\n", (*lst));
-	// dprintf(1, "flag_0 = %d\n", (*lst)->flag_0);
-	// dprintf(1, "flag_point = %d\n", (*lst)->flag_point);
-	// dprintf(1, "flag_etoile = %d\n", (*lst)->flag_etoile);
-	// dprintf(1, "flag_tiret = %d\n", (*lst)->flag_tiret);
-	// dprintf(1, "backslash = %d\n", (*lst)->backslash);
-	// dprintf(1, "verif = %d\n", (*lst)->verif);
-	// dprintf(1, "size = %d\n", (*lst)->size);
-	// dprintf(1, "size_point = %d\n", (*lst)->size_point);
-	// dprintf(1, "print = %s\n", (*lst)->print);
 	return (ret);
 }

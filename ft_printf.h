@@ -6,7 +6,7 @@
 /*   By: ldenis <ldenis@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/03 14:38:21 by ldenis            #+#    #+#             */
-/*   Updated: 2021/02/16 10:20:13 by ldenis           ###   ########lyon.fr   */
+/*   Updated: 2021/02/17 11:20:46 by ldenis           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ typedef struct		s_print
 	int				flag_tiret;
 	int				flag_point;
 	int				flag_etoile;
+	int				second_wildcard;
 	int				size;
 	int				size_point;
 	int				verif;

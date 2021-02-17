@@ -6,7 +6,7 @@
 /*   By: ldenis <ldenis@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/18 13:59:46 by ldenis            #+#    #+#             */
-/*   Updated: 2021/02/16 14:40:10 by ldenis           ###   ########lyon.fr   */
+/*   Updated: 2021/02/17 11:21:39 by ldenis           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,6 +92,8 @@ void		fill_print(t_print *lst)
 			lst->print = ft_strfjoin(" \0", lst->print, 2);
 		lst->index_b++;
 	}
+	if (lst->verif == 1)
+		lst->print = ft_strfjoin("-\0", lst->print, 2);
 	lst->index_b -= 2;
 }
 
@@ -99,7 +101,10 @@ void		wildcard(t_print *lst, va_list ap)
 {
 	lst->flag_etoile = 1;
 	if (lst->flag_point == 1)
+	{
 		lst->size_point = va_arg(ap, int);
+		lst->second_wildcard = 1;
+	}
 	else
 		lst->size = va_arg(ap, int);
 	if (lst->size <= 0)

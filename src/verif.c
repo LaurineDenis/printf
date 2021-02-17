@@ -6,7 +6,7 @@
 /*   By: ldenis <ldenis@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/12 17:25:15 by laurinedeni       #+#    #+#             */
-/*   Updated: 2021/02/16 14:26:35 by ldenis           ###   ########lyon.fr   */
+/*   Updated: 2021/02/17 11:23:14 by ldenis           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,8 @@ int		verif_fill(t_print *lst, int i)
 		if (lst->size_point > 0 && lst->flag_point == 1)
 			lst->flag_0 = 1;
 	}
+	if (lst->size_point > 1 && lst->second_wildcard == 0)
+		lst->flag_0 = 1;
 	if (i == 0 && lst->backslash == 1)
 		i++;
 	return (i);
@@ -61,8 +63,13 @@ int		verif(t_print *lst, int i)
 		lst->flag_0 = 0;
 	if (lst->flag_point == 1 && lst->size_point == 0)
 		lst->flag_0 = 0;
-	if (lst->verif == 1)
+	if (lst->verif == 1 && lst->flag_0 == 0)
+	{
 		lst->print = ft_strfjoin("-\0", lst->print, 2);
+		lst->verif = 0;
+	}
+	else if (lst->verif == 1)
+		return (i);
 	else
 		i--;
 	return (i);

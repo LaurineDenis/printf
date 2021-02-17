@@ -6,7 +6,7 @@
 /*   By: ldenis <ldenis@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/13 10:50:43 by laurinedeni       #+#    #+#             */
-/*   Updated: 2021/02/16 10:20:32 by ldenis           ###   ########lyon.fr   */
+/*   Updated: 2021/02/17 11:21:50 by ldenis           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ t_print	*init_struct(void)
 	new->flag_tiret = 0;
 	new->flag_point = 0;
 	new->flag_etoile = 0;
+	new->second_wildcard = 0;
 	new->size = 0;
 	new->size_point = 0;
 	new->verif = 0;

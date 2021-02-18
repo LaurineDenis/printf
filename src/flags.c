@@ -6,7 +6,7 @@
 /*   By: ldenis <ldenis@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/18 13:59:46 by ldenis            #+#    #+#             */
-/*   Updated: 2021/02/17 11:21:39 by ldenis           ###   ########lyon.fr   */
+/*   Updated: 2021/02/18 10:06:51 by ldenis           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,11 +67,8 @@ void		zero(t_print *lst, const char *str)
 		lst->flag_0 = 1;
 }
 
-void		fill_print(t_print *lst)
+void		fill_print(t_print *lst, int i)
 {
-	int		i;
-
-	i = ft_strlen(lst->print);
 	i = verif_fill(lst, i);
 	while (i++ < lst->size_point)
 	{

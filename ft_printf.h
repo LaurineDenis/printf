@@ -6,7 +6,7 @@
 /*   By: ldenis <ldenis@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/03 14:38:21 by ldenis            #+#    #+#             */
-/*   Updated: 2021/02/17 11:20:46 by ldenis           ###   ########lyon.fr   */
+/*   Updated: 2021/02/18 10:06:59 by ldenis           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ int					is_f(char c);
 int					is_num(char c);
 void				tiret(t_print *lst);
 void				size(t_print *lst);
-void				fill_print(t_print *lst);
+void				fill_print(t_print *lst, int i);
 void				zero(t_print *lst, const char *str);
 void				wildcard(t_print *lst, va_list ap);
 void				point(t_print *lst, const char *str);

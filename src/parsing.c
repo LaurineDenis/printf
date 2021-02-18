@@ -6,7 +6,7 @@
 /*   By: ldenis <ldenis@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/13 12:15:02 by laurinedeni       #+#    #+#             */
-/*   Updated: 2021/02/16 10:17:45 by ldenis           ###   ########lyon.fr   */
+/*   Updated: 2021/02/18 10:06:50 by ldenis           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,12 +45,14 @@ char		*parsing(int i, const char *str, t_print **lst, va_list ap)
 {
 	void		(*tab_fonction[121])(va_list, t_print *, char *);
 	char		*ret;
+	int			len;
 
 	ret = NULL;
 	init_tab(tab_fonction);
 	(*lst)->convert = str[i];
 	(tab_fonction[(int)str[i]])(ap, *lst, (char *)str);
-	fill_print(*lst);
+	len = ft_strlen((*lst)->print);
+	fill_print(*lst, len);
 	ret = ft_substr((*lst)->print, 0, ft_strlen((*lst)->print));
 	return (ret);
 }

@@ -6,7 +6,7 @@
 /*   By: ldenis <ldenis@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/03 14:38:21 by ldenis            #+#    #+#             */
-/*   Updated: 2021/02/18 10:06:59 by ldenis           ###   ########lyon.fr   */
+/*   Updated: 2021/02/19 13:46:01 by ldenis           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,13 +55,14 @@ int					is_num(char c);
 void				tiret(t_print *lst);
 void				size(t_print *lst);
 void				fill_print(t_print *lst, int i);
-void				zero(t_print *lst, const char *str);
+void				zero(t_print *lst, const char *str, int i);
 void				wildcard(t_print *lst, va_list ap);
 void				point(t_print *lst, const char *str);
 int					verif(t_print *lst, int i);
 void				backslash(t_print *lst, char *str);
 int					aff_zero(t_print *lst, char *ret, size_t len);
 int					verif_fill(t_print *lst, int i);
+int					verif_percent(t_print *lst, int i);
 int					aff_printf(int len, int aff, char *ret, int i);
 char				*parsing(int i, const char *str, t_print **lst, va_list ap);
 void				lst_free(t_print **lst);

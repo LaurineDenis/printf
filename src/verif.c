@@ -6,7 +6,7 @@
 /*   By: ldenis <ldenis@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/12 17:25:15 by laurinedeni       #+#    #+#             */
-/*   Updated: 2021/02/17 11:23:14 by ldenis           ###   ########lyon.fr   */
+/*   Updated: 2021/02/24 10:21:41 by ldenis           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,17 @@
 
 int		verif_fill(t_print *lst, int i)
 {
+	if (lst->convert == '%')
+		return (verif_percent(lst, i));
+	if (lst->size_point == 0 && lst->flag_point == 1)
+		lst->flag_0 = 0;
 	if (lst->size_point == 1 && lst->size > 1)
 		lst->flag_0 = 0;
 	if (lst->size <= 0)
 		lst->size = lst->size * -1;
-	if (lst->convert == '%')
-		lst->size_point = 1;
 	if (lst->size == 1 && ft_strlen(lst->print) == 0)
 		lst->flag_0 = 0;
-	if (lst->size <= lst->size_point)
+	if (lst->size < lst->size_point)
 	{
 		lst->size = lst->size_point;
 		lst->flag_0 = 1;
@@ -30,14 +32,23 @@ int		verif_fill(t_print *lst, int i)
 	if (lst->flag_tiret == 1 && lst->size_point > 0)
 		lst->flag_0 = 1;
 	if (lst->flag_etoile == 0 && lst->flag_tiret == 0)
-	{
 		if (lst->size_point > 0 && lst->flag_point == 1)
 			lst->flag_0 = 1;
-	}
 	if (lst->size_point > 1 && lst->second_wildcard == 0)
 		lst->flag_0 = 1;
 	if (i == 0 && lst->backslash == 1)
 		i++;
+	return (i);
+}
+
+int		verif_percent(t_print *lst, int i)
+{
+	if (lst->flag_tiret == 1 && lst->size_point > 0)
+		lst->size_point = 0;
+	if (lst->size < 0)
+		lst->size = lst->size * -1;
+	if (lst->size_point < 0)
+		lst->size_point = lst->size;
 	return (i);
 }
 
@@ -49,7 +60,6 @@ int		back200(t_print *lst, char *ret)
 	while (ret[i] != '\200')
 		i++;
 	lst->index_b = i;
-	dprintf(1, "index = %d\n", i);
 	return (i);
 }
 
@@ -60,8 +70,6 @@ int		verif(t_print *lst, int i)
 	j = 0;
 	i = test(lst, i);
 	if (lst->size_point > 0 && lst->size > 0)
-		lst->flag_0 = 0;
-	if (lst->flag_point == 1 && lst->size_point == 0)
 		lst->flag_0 = 0;
 	if (lst->verif == 1 && lst->flag_0 == 0)
 	{

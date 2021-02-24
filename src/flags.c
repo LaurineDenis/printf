@@ -6,7 +6,7 @@
 /*   By: ldenis <ldenis@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/18 13:59:46 by ldenis            #+#    #+#             */
-/*   Updated: 2021/02/18 10:06:51 by ldenis           ###   ########lyon.fr   */
+/*   Updated: 2021/02/24 10:34:05 by ldenis           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ int			add_flag(t_print *lst, char *str, int start, va_list ap)
 			lst->size = ft_fatoi(ft_substr(str, start, i));
 		else
 			lst->size_point = ft_fatoi(ft_substr(str, start, i));
-		zero(lst, str);
+		zero(lst, str, start);
 		return (start + j);
 	}
 	return (start + 1);
@@ -56,11 +56,9 @@ void		point(t_print *lst, const char *str)
 		lst->flag_0 = 1;
 }
 
-void		zero(t_print *lst, const char *str)
+void		zero(t_print *lst, const char *str, int i)
 {
-	size_t		i;
-
-	i = 0;
+	i--;
 	while (str[i] != '%' && str[i])
 		i++;
 	if (str[i + 1] == '0')

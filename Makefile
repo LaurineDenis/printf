@@ -6,51 +6,85 @@
 #    By: ldenis <ldenis@student.42lyon.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/12/13 14:57:14 by ldenis            #+#    #+#              #
-#    Updated: 2021/02/15 16:42:12 by ldenis           ###   ########lyon.fr    #
+#    Updated: 2021/03/02 14:12:13 by ldenis           ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		= libftprintf.a
+BLUE =\033[0;38;5;123m
+LIGHT_PINK = \033[0;38;5;200m
+PINK = \033[0;38;5;198m
+DARK_BLUE = \033[1;38;5;110m
+GREEN = \033[1;32;111m
+LIGHT_GREEN = \033[0;38;5;121m
+LIGHT_RED = \033[0;31;5;110m
+FLASH_GREEN = \033[33;32m
+WHITE_BOLD = \033[37m
+GREY = \033[3;90m
+ORANGE = \033[3;91m
+YELLOW = \033[0;33m
 
-SRC_PATH	= ./src/
+NAME			= libftprintf.a
 
-SRCS		= $(addprefix ${SRC_PATH},\
-			printf.c flags.c fonctions.c \
-			utils.c verif.c aff.c linked_list.c \
-			print_x_bigx.c grid_fonction.c parsing.c \
-			free_lst.c)
+SRCS_PATH		= src/
 
-OBJS		= ${SRCS:.c=.o}
+SRCS_NAME		= printf.c flags.c fonctions.c \
+				utils.c verif.c aff.c linked_list.c \
+				print_x_bigx.c grid_fonction.c parsing.c \
+				free_lst.c
 
-HEADER		= ft_printf.h
+SRCS			=	$(addprefix $(SRCS_PATH), $(SRCS_NAME))
 
-RM			=	rm -f
+OBJ_PATH		=	obj/
 
-CC			=	gcc
+OBJ_NAME		= ${SRCS_NAME:.c=.o}
 
-CFLAGS		=	-Wall -Werror -Wextra
+OBJ				=	$(addprefix $(OBJ_PATH), $(OBJ_NAME))
 
-LIB			= libft/libft.a
+HEADER			= ft_printf.h
 
-%.o:		%.c ft_printf.h
-			@echo "\033[0;32m [OK] \033[0m       \033[0;33m Compiling:\033[0m" $<
-			@${CC} ${CFLAGS} -I includes -c $< -o $@ -g3
+RM				=	rm -rf
 
-all:		${NAME}
+CC				=	gcc
 
-$(NAME):	${OBJS} librairie
-			@ar rcs ${NAME} ${OBJS} libft/*.o
+CFLAGS			=	-Wall -Werror -Wextra
+
+LIB				= libft/libft.a
+
+$(OBJ_PATH)%.o:		$(SRCS_PATH)%.c ft_printf.h
+					@printf "\033[2K\r$(LIGHT_PINK)Compiling:	\033[37m$<\033[36m \033[0m"
+					@sleep 0.1
+					@${CC} ${CFLAGS} -I includes -c $< -o $@ -g3
+
+all:				$(OBJ_PATH) ${NAME}
+					@:
+
+$(OBJ_PATH):
+					@echo "$(BLUE)\n\t\tPRINTF :\n"
+					@mkdir -p obj/ 2> /dev/null
+
+$(NAME):			${OBJ} librairie
+					@ar rcs ${NAME} ${OBJ} libft/obj/*
+					@echo "$(GREEN)\n\n\t\t[OK]\n"
 
 librairie:
-			@make -C libft
+					@make -C libft
 
 clean:
-			@${RM} ${OBJS}
-			@make clean -C libft
+					@${RM} ${OBJ_PATH}
+					@echo ""
+					@echo "\t\t$(LIGHT_RED)[Delete objs ft_printf done]"
+					@echo ""
+					@make clean -C libft
 
 fclean:
-			@${RM} ${OBJS}
-			@${RM} ${NAME}
-			@make -C libft fclean
+					@${RM} ${OBJ_PATH}
+					@${RM} ${NAME}
+					@echo ""
+					@echo "\t\t$(LIGHT_RED)[Delete objs ft_printf done]"
+					@echo ""
+					@make -C libft fclean
 
-re:			fclean all
+re:					fclean all
+
+norme:
+					@/usr/bin/norminette $(SRCS_PATH) | grep -v "42 header"

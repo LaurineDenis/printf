@@ -6,7 +6,7 @@
 /*   By: ldenis <ldenis@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/16 11:51:27 by ldenis            #+#    #+#             */
-/*   Updated: 2021/02/19 14:15:47 by ldenis           ###   ########lyon.fr   */
+/*   Updated: 2021/03/02 13:14:48 by ldenis           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,8 @@ void	print_per(va_list ap, t_print *lst, char *str)
 	s[1] = '\0';
 	(void)str;
 	(void)ap;
-	if (lst->size == 0 && lst->size_point > 0 && lst->flag_point == 1)
-		lst->size_point = 0;
+	// if (lst->size == 0 && lst->size_point > 0 && lst->flag_point == 1)
+	// 	lst->size_point = 0;
 	if (!(lst->print = ft_strfjoin(lst->print, s, 1)))
 		return ;
 }

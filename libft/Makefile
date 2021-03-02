@@ -6,9 +6,22 @@
 #    By: ldenis <ldenis@student.42lyon.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/12/13 14:57:14 by ldenis            #+#    #+#              #
-#    Updated: 2021/02/04 11:52:28 by ldenis           ###   ########lyon.fr    #
+#    Updated: 2021/03/02 14:10:23 by ldenis           ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
+
+BLUE =\033[0;38;5;123m
+LIGHT_PINK = \033[0;38;5;200m
+PINK = \033[0;38;5;198m
+DARK_BLUE = \033[1;38;5;110m
+GREEN = \033[1;32;111m
+LIGHT_GREEN = \033[0;38;5;121m
+LIGHT_RED = \033[0;31;5;110m
+FLASH_GREEN = \033[33;32m
+WHITE_BOLD = \033[37m
+GREY = \033[3;90m
+ORANGE = \033[3;91m
+YELLOW = \033[0;33m
 
 NAME		= libft.a
 
@@ -24,32 +37,44 @@ SRCS		= ft_putnbr_fd.c ft_putendl_fd.c ft_putstr_fd.c ft_putchar_fd.c \
  ft_convert_base.c ft_convert_base2.c ft_counterword.c ft_fatoi.c ft_itoa_hexa_l.c \
  ft_itoa_hexa_unsi.c ft_itoa_unsi.c ft_iszero.c
 
-OBJS		= ${SRCS:.c=.o}
+OBJ_PATH	= obj/
+
+OBJ_NAME	= ${SRCS:.c=.o}
+
+OBJ			= $(addprefix $(OBJ_PATH), $(OBJ_NAME))
 
 HEADER		= libft.h
 
-RM			=	rm -f
+RM			= rm -rf
 
-CC			=	gcc
+CC			= gcc
 
-CFLAGS		=	-Wall -Werror -Wextra
+CFLAGS		= -Wall -Werror -Wextra
 
-%.o:		%.c libft.h
-			@echo "\033[0;32m [OK] \033[0m       \033[0;33m Compiling:\033[0m" $<
-			@${CC} ${CFLAGS} -I includes -c $< -o $@
+$(OBJ_PATH)%.o:	%.c $(HEADER)
+				@printf "\033[2K\r$(LIGHT_PINK)Compiling:	\033[37m$<\033[36m \033[0m"
+				@${CC} ${CFLAGS} -I includes -c $< -o $@
 
-$(NAME):	all
+all:			$(OBJ_PATH) ${NAME}
+				@:
 
-all:		${OBJS}
-			@ar rcs ${NAME} ${OBJS}
+$(OBJ_PATH):
+				@echo "$(BLUE)\n\n\t\tLIBFT :\n"
+				@mkdir -p obj/ 2> /dev/null
+
+$(NAME):		${OBJ}
+				@ar rcs ${NAME} ${OBJ}
 
 clean:
-			@${RM}  ${OBJS}
-			@echo ""
-			@echo "                    \033[0;32m [Delete done] \033[0m"
-			@echo ""
+				@${RM} ${OBJ_PATH}
+				@echo ""
+				@echo "\t\t$(LIGHT_RED)[Delete objs libft done]"
+				@echo ""
 
-fclean:		clean
-			@${RM} ${NAME}
+fclean:			clean
+				@${RM} ${NAME}
 
-re:			fclean all
+re:				fclean all
+
+norme:
+					@/usr/bin/norminette $(SRCS_NAME) | grep -v "42 header"

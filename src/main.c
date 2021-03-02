@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ldenis <ldenis@student.42lyon.fr>          +#+  +:+       +#+        */
+/*   By: laurinedenis <laurinedenis@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/02 16:24:05 by ldenis            #+#    #+#             */
-/*   Updated: 2021/03/02 16:58:38 by ldenis           ###   ########lyon.fr   */
+/*   Updated: 2021/03/02 17:55:54 by laurinedeni      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,10 +61,10 @@ int		main(void)
 	dprintf(1, "\nret 1 = %d\nret 2 = %d\n", ret1, ret2);
 	printf("\n");
 	dprintf(1, "--------------- TEST 7 ---------------\n");
-	dprintf(1, "10.*, 10, 1\n");
+	dprintf(1, "10.*, -10\n");
 	ret1 = printf("v %10.*%", -10);
 	printf("\n");
-	ret2 = ft_printf("f %*.*%", 10, 1);
+	ret2 = ft_printf("f %10.*%", -10);
 	dprintf(1, "\nret 1 = %d\nret 2 = %d\n", ret1, ret2);
 	printf("\n");
 }

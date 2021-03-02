@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   printf.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ldenis <ldenis@student.42lyon.fr>          +#+  +:+       +#+        */
+/*   By: laurinedenis <laurinedenis@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/16 11:51:27 by ldenis            #+#    #+#             */
-/*   Updated: 2021/03/02 16:23:59 by ldenis           ###   ########lyon.fr   */
+/*   Updated: 2021/03/02 18:23:29 by laurinedeni      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,21 @@
 void	print_per(va_list ap, t_print *lst, char *str)
 {
 	char	s[2];
+	int		i;
 
 	s[0] = '%';
 	s[1] = '\0';
-	(void)str;
+	i = 0;
 	(void)ap;
 	if (lst->size == 0 && lst->size_point > 0 && lst->flag_point == 1)
 		lst->size_point = 0;
+	if (lst->size_point >= 1)
+	{
+		while (str[i] != '%' && str[i])
+			i++;
+		if (str[i + 1] != '0')
+			lst->flag_0 = 0;
+	}
 	if (!(lst->print = ft_strfjoin(lst->print, s, 1)))
 		return ;
 }

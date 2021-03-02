@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   verif.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ldenis <ldenis@student.42lyon.fr>          +#+  +:+       +#+        */
+/*   By: laurinedenis <laurinedenis@student.42.f    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/12 17:25:15 by laurinedeni       #+#    #+#             */
-/*   Updated: 2021/03/02 16:57:21 by ldenis           ###   ########lyon.fr   */
+/*   Updated: 2021/03/02 18:23:10 by laurinedeni      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,17 +43,10 @@ int		verif_fill(t_print *lst, int i)
 
 int		verif_percent(t_print *lst, int i)
 {
-	// // (void)lst;
-	// dprintf(1, "lst->size = %d\n", lst->size);
-	// dprintf(1, "lst->size_point = %d\n", lst->size_point);
 	if (lst->flag_tiret == 1 && lst->size_point > 0)
 		lst->size_point = 0;
 	if (lst->size < 0)
 		lst->size = lst->size * -1;
-	if (lst->flag_point == 1 && lst->second_wildcard == 1)
-		lst->flag_0 = 0;
-	if (lst->size_point < 0)
-		lst->flag_0 = 1;
 	lst->size_point = 0;
 	return (i);
 }

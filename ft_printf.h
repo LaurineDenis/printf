@@ -6,7 +6,7 @@
 /*   By: ldenis <ldenis@student.42lyon.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/03 14:38:21 by ldenis            #+#    #+#             */
-/*   Updated: 2021/02/19 13:46:01 by ldenis           ###   ########lyon.fr   */
+/*   Updated: 2021/03/02 16:40:53 by ldenis           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,6 +67,5 @@ int					aff_printf(int len, int aff, char *ret, int i);
 char				*parsing(int i, const char *str, t_print **lst, va_list ap);
 void				lst_free(t_print **lst);
 int					back200(t_print *lst, char *ret);
-int					test(t_print *lst, int i);
 
 #endif

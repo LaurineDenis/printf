@@ -6,7 +6,7 @@
 #    By: ldenis <ldenis@student.42lyon.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/12/13 14:57:14 by ldenis            #+#    #+#              #
-#    Updated: 2021/03/02 14:10:23 by ldenis           ###   ########lyon.fr    #
+#    Updated: 2021/03/03 09:45:35 by ldenis           ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -68,7 +68,7 @@ $(NAME):		${OBJ}
 clean:
 				@${RM} ${OBJ_PATH}
 				@echo ""
-				@echo "\t\t$(LIGHT_RED)[Delete objs libft done]"
+				@echo "\t\t$(ORANGE)[Delete objs libft done]"
 				@echo ""
 
 fclean:			clean

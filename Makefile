@@ -6,7 +6,7 @@
 #    By: ldenis <ldenis@student.42lyon.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/12/13 14:57:14 by ldenis            #+#    #+#              #
-#    Updated: 2021/03/02 14:12:13 by ldenis           ###   ########lyon.fr    #
+#    Updated: 2021/03/03 09:48:35 by ldenis           ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,7 +27,7 @@ NAME			= libftprintf.a
 
 SRCS_PATH		= src/
 
-SRCS_NAME		= printf.c flags.c fonctions.c \
+SRCS_NAME		= ft_printf.c flags.c fonctions.c \
 				utils.c verif.c aff.c linked_list.c \
 				print_x_bigx.c grid_fonction.c parsing.c \
 				free_lst.c
@@ -62,17 +62,17 @@ $(OBJ_PATH):
 					@echo "$(BLUE)\n\t\tPRINTF :\n"
 					@mkdir -p obj/ 2> /dev/null
 
-$(NAME):			${OBJ} librairie
+$(NAME):			${OBJ} library
 					@ar rcs ${NAME} ${OBJ} libft/obj/*
 					@echo "$(GREEN)\n\n\t\t[OK]\n"
 
-librairie:
+library:
 					@make -C libft
 
 clean:
 					@${RM} ${OBJ_PATH}
 					@echo ""
-					@echo "\t\t$(LIGHT_RED)[Delete objs ft_printf done]"
+					@echo "\t\t$(ORANGE)[Delete objs ft_printf done]"
 					@echo ""
 					@make clean -C libft
 
@@ -80,11 +80,11 @@ fclean:
 					@${RM} ${OBJ_PATH}
 					@${RM} ${NAME}
 					@echo ""
-					@echo "\t\t$(LIGHT_RED)[Delete objs ft_printf done]"
+					@echo "\t\t$(ORANGE)[Delete objs ft_printf done]"
 					@echo ""
 					@make -C libft fclean
 
 re:					fclean all
 
 norme:
-					@/usr/bin/norminette $(SRCS_PATH) | grep -v "42 header"
+					@/usr/bin/norminette $(SRCS_PATH)

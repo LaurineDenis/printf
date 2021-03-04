@@ -6,7 +6,7 @@
 #    By: ldenis <ldenis@student.42lyon.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/12/13 14:57:14 by ldenis            #+#    #+#              #
-#    Updated: 2021/03/03 09:48:35 by ldenis           ###   ########lyon.fr    #
+#    Updated: 2021/03/03 14:21:58 by ldenis           ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -52,7 +52,6 @@ LIB				= libft/libft.a
 
 $(OBJ_PATH)%.o:		$(SRCS_PATH)%.c ft_printf.h
 					@printf "\033[2K\r$(LIGHT_PINK)Compiling:	\033[37m$<\033[36m \033[0m"
-					@sleep 0.1
 					@${CC} ${CFLAGS} -I includes -c $< -o $@ -g3
 
 all:				$(OBJ_PATH) ${NAME}
